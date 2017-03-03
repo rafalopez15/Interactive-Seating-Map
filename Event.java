@@ -16,7 +16,7 @@ public class Event extends JFrame implements ActionListener{
 	private int maxSeats = 100;
 	private int human = 0;
 
-	private String char = "X"; 
+	private String chars = "X"; 
 
 	
 	public Event(){
@@ -49,8 +49,11 @@ public class Event extends JFrame implements ActionListener{
 		setGridEnabled(false);
 
 		add(northPanel, "North");
-		add(centerPanel, "Center")
-
+		add(centerPanel, "Center");
+		add(southPanel, "South");
+		
+		
+		
 		setSize(600, 600);
 
 		setLocationRelativeTo(null);
@@ -65,16 +68,17 @@ public class Event extends JFrame implements ActionListener{
 		for (int i = 0; i < 1; i++)
 			for (int j = 0; j < 3; j++) {
 				grid[i][j].setEnabled(enabled);
-				if (enabled)
+				if (enabled){
 					grid[0][0].setText(" Movie ");
 					grid[0][1].setText(" Game ");
 					grid[0][2].setText(" Concert ");
+				}
 			}
 	}
 
 	private void clickOne(int i, int j) {
 		
-		grid[i][j].setText(char);	
+		grid[i][j].setText(chars);	
 		
 	}
 
@@ -82,13 +86,13 @@ public class Event extends JFrame implements ActionListener{
 	private void start() {
 		setStatus("Please select event type");
 		setGridEnabled(true);
-		isPlay = true;
+		//isPlay = true;
 	}
 
 
 	public void actionPerformed(ActionEvent event) {
 		// checks to see if play button was pressed
-		if (event.getSource() == playButton) {
+		if (event.getSource() == startButton) {
 			start();
 			
 		//checks to see if reset button was pressed
@@ -105,5 +109,9 @@ public class Event extends JFrame implements ActionListener{
 		}
 	}
 
+	public static void main (String [] args){
+		new Event().setVisible(true);
+		
+	}
 
 }
