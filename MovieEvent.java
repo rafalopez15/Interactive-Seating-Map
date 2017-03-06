@@ -9,11 +9,9 @@ public class MovieEvent extends Event {
 	public MovieEvent() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(10, 5));
-		JButton[] buttons = new JButton[seats.length];
 		for (int i = 0; i < buttons.length; i++) {
-			buttons[i] = new JButton("Seat");
 			seats[i].setPrice(10.0);
-			panel.add(buttons[i]);
+			panel.add(seats[i]);
 		}
 		panel.setVisible(true);
 		panel.show();
