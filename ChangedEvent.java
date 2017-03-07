@@ -9,6 +9,7 @@ public class ChangedEvent extends JFrame implements ActionListener{
   private JButton backButton = new JButton("Back");
   private JButton[][] grid = new JButton[1][3];
   private JLabel statusBar = new JLabel("");
+  JPanel centerPanel = new JPanel(new GridLayout(1, 3));
   private boolean isSoldOut = false;
   public static final int eventOne = 0;
   public static final int eventTwo = 1;
@@ -26,7 +27,6 @@ public class ChangedEvent extends JFrame implements ActionListener{
     setResizable(true);
     
     // 
-    JPanel centerPanel = new JPanel(new GridLayout(1, 3));
     Font font = new Font("MS Gothic", Font.BOLD, 40);
     for (int i = 0; i < 1; i++){
       for (int j = 0; j < 3; j++) {
@@ -80,9 +80,11 @@ public class ChangedEvent extends JFrame implements ActionListener{
     
     //grid[i][j].setText(chars); 
     if (i == 0 && j == 0) {
-      JComponent newContent = new ChangedMovieEvent();
-      setContentPane(newContent);
+      JPanel newContent = new ChangedMovieEvent();
       newContent.setPreferredSize(null);
+      add(newContent, BorderLayout.CENTER);
+      newContent.setVisible(true);
+      centerPanel.setVisible(false);
       pack();
     }
     
@@ -91,6 +93,7 @@ public class ChangedEvent extends JFrame implements ActionListener{
   
   private void start() {
     setStatus("Please select event type");
+    centerPanel.setVisible(true);
     setGridEnabled(true);
     //isPlay = true;
   }
@@ -119,7 +122,7 @@ public class ChangedEvent extends JFrame implements ActionListener{
   }
   
   public static void main (String [] args){
-    new Event().setVisible(true);
+    new ChangedEvent().setVisible(true);
   }
   
 }
