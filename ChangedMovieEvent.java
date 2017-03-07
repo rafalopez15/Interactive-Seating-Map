@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class ChangedMovieEvent extends JPanel {
   
-  ChangedSeat[] seats = new ChangedSeat[50];
+  Seat[] seats = new Seat[50];
   JButton back = new JButton();
   JPanel order = new JPanel();
   JLabel orderTotal = new JLabel();
@@ -36,7 +36,7 @@ public class ChangedMovieEvent extends JPanel {
     JPanel gridSeats = new JPanel();
     gridSeats.setLayout(new GridLayout(10, 5));
     for (int i = 0; i < seats.length; i++) {
-      seats[i] = new ChangedSeat();
+      seats[i] = new Seat();
       seats[i].setPrice(10.0);
       seats[i].setText("");
       gridSeats.add(seats[i]);

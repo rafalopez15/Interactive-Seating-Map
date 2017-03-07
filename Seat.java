@@ -1,13 +1,13 @@
 import javax.swing.JToggleButton;
 
-public class ChangedSeat extends JToggleButton {
+public class Seat extends JToggleButton {
  
  private double price;
  
- public ChangedSeat() {
+ public Seat() {
  }
  
- public ChangedSeat(double price) {
+ public Seat(double price) {
   this.setText("Seat Button");
   this.price = price;
  }

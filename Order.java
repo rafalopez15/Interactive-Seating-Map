@@ -16,8 +16,6 @@ public class Order extends JLabel {
         public void actionPerformed(ActionEvent e) {
           Seat check = (Seat)e.getSource();
           if (check.isSelected()) {
-            JDialog test = new JDialog();
-            test.setVisible(true);
             noTickets++;
             tempTotal += check.getPrice();
           }
