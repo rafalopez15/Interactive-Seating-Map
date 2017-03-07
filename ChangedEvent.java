@@ -10,6 +10,7 @@ public class ChangedEvent extends JFrame implements ActionListener{
   private JButton[][] grid = new JButton[1][3];
   private JLabel statusBar = new JLabel("");
   JPanel centerPanel = new JPanel(new GridLayout(1, 3));
+  JPanel newContent = new ChangedMovieEvent();
   private boolean isSoldOut = false;
   public static final int eventOne = 0;
   public static final int eventTwo = 1;
@@ -80,7 +81,6 @@ public class ChangedEvent extends JFrame implements ActionListener{
     
     //grid[i][j].setText(chars); 
     if (i == 0 && j == 0) {
-      JPanel newContent = new ChangedMovieEvent();
       newContent.setPreferredSize(null);
       add(newContent, BorderLayout.CENTER);
       newContent.setVisible(true);

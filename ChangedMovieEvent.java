@@ -5,14 +5,14 @@ import java.awt.event.*;
 public class ChangedMovieEvent extends JPanel {
   
   Seat[] seats = new Seat[50];
-  JButton back = new JButton();
+  JButton back = new JButton("Back");
   JPanel order = new JPanel();
   JLabel orderTotal = new JLabel();
   double total = 0.0;
   Dimension size = new Dimension(500, 500);
   
   public ChangedMovieEvent() {
-    back.setPreferredSize(new Dimension(100, 50));
+    back.setPreferredSize(new Dimension(75, 50));
     back.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back){
@@ -25,7 +25,7 @@ public class ChangedMovieEvent extends JPanel {
     centerPanel.setLayout(new BorderLayout());
     centerPanel.add(getSeats(), BorderLayout.CENTER);
     centerPanel.add(order, BorderLayout.SOUTH);
-    add(back);
+    order.add(back);
     order.add(new JLabel("Total: "));
     order.add(new Order(seats));
     
