@@ -6,19 +6,11 @@ public class Order extends JLabel {
   
   double total;
   JLabel orderTotal;
-  /*
-  public Order(ChangedSeat s){
-    setText("" + s.getPrice());
-  }
-  */
   
   public Order(ChangedSeat[] s) {
-    //setText("Total: ");
-    //setText("" + s.getPrice());
     for (int i = 0; i < s.length; i++) {
       s[i].addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-        
           ChangedSeat check = (ChangedSeat)e.getSource();
           if (check.isSelected()) {
             check.setText(" ");
