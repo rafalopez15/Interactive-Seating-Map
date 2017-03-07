@@ -5,6 +5,9 @@ import java.awt.event.*;
 public class Order extends JLabel {
   
   double total;
+  double tempTotal;
+  double bulk;
+  int noTickets;
   JLabel orderTotal;
   
   public Order(ChangedSeat[] s) {
@@ -13,14 +16,21 @@ public class Order extends JLabel {
         public void actionPerformed(ActionEvent e) {
           ChangedSeat check = (ChangedSeat)e.getSource();
           if (check.isSelected()) {
-            check.setText(" ");
-            total += check.getPrice();
+            noTickets++;
+            tempTotal += check.getPrice();
           }
           else if (!check.isSelected()) {
-            check.setText("");
-            total -= check.getPrice();
+            noTickets--;
+            tempTotal -= check.getPrice();
           }
-          setText("$ " + total);
+          if (noTickets > 4) {
+            bulk = tempTotal * .3;
+            total = tempTotal - bulk;
+            setText("$ " + total);
+          }
+          else {
+            setText("$ " + tempTotal);
+          }
         }
       });
     }
