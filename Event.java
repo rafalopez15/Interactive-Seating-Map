@@ -21,9 +21,12 @@ public class Event extends JFrame implements ActionListener{
 	
 	public Event(){
 
+		User user = new User("Name", false);
 		setTitle("Events");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(true);
+
+		JCheckBox vipBox = new JCheckBox("VIP", false);
 		
 		// 
 		JPanel centerPanel = new JPanel(new GridLayout(1, 3));
@@ -44,6 +47,11 @@ public class Event extends JFrame implements ActionListener{
 
 		JPanel southPanel = new JPanel();
 		southPanel.add(startButton);
+		southPanel.add(vipBox);
+
+		// Check to see if the user is a VIP
+		if (vipBox.isSelected())
+			user.setVIP(true);
 
 		setStatus("Click Start to view events");
 		setGridEnabled(false);
