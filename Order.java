@@ -10,11 +10,11 @@ public class Order extends JLabel {
   int noTickets;
   JLabel orderTotal;
   
-  public Order(ChangedSeat[] s) {
+  public Order(Seat[] s) {
     for (int i = 0; i < s.length; i++) {
       s[i].addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-          ChangedSeat check = (ChangedSeat)e.getSource();
+          Seat check = (Seat)e.getSource();
           if (check.isSelected()) {
             JDialog test = new JDialog();
             test.setVisible(true);
