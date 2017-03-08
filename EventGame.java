@@ -133,18 +133,18 @@ public class EventGame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		//JToggleButton check =  (JToggleButton) e.getSource();
 		if(e.getSource() == north2 || e.getSource() == south2){
-			seatingDisplay = new GameSeatingDisplay(nsx,y2);
+			seatingDisplay = new SeatingDisplay(nsx,y2);
 			//seatingDisplay.setPreferredSize(upperD);
 		}
 		
 		else if(e.getSource() == north1 || e.getSource() == south1){
-			seatingDisplay = new GameSeatingDisplay(nsx, y1);
+			seatingDisplay = new SeatingDisplay(nsx, y1);
 			//seatingDisplay.setPreferredSize(northSouthD);
 		}
 		
 		
 		else if( e.getSource() == east || e.getSource() == west){
-			seatingDisplay = new GameSeatingDisplay(ewx, ewy);
+			seatingDisplay = new SeatingDisplay(ewx, ewy);
 			//seatingDisplay.setPreferredSize(new Dimension(600,600));
 			
 		}
