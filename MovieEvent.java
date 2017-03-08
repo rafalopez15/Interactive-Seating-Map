@@ -22,9 +22,10 @@ public class MovieEvent extends JPanel {
       }
     });
     TitledBorder titled = new TitledBorder("Order Summary");
+    titled.setTitleJustification(TitledBorder.CENTER);
     JPanel centerPanel = new JPanel();
     centerPanel.setPreferredSize(size);
-    order.setPreferredSize(new Dimension(200, 500));
+    order.setPreferredSize(new Dimension(150, 500));
     centerPanel.setLayout(new BorderLayout());
     centerPanel.add(getSeats(), BorderLayout.CENTER);
     centerPanel.add(order, BorderLayout.EAST);
