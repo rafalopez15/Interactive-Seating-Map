@@ -11,6 +11,7 @@ public class Order extends JLabel {
   int noTickets;
   
   public Order(Seat[] s) {
+    
     for (int i = 0; i < s.length; i++) {
       s[i].addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
@@ -26,10 +27,10 @@ public class Order extends JLabel {
           if (noTickets > 4) {
             bulk = tempTotal * .3;
             total = tempTotal - bulk;
-            setText("<html>&nbsp;&nbsp;&nbsp;" + tempTotal + "<br>-&nbsp;&nbsp;<font color=red>" + bulk + "</font><br>----------<br>$&nbsp;" + total + "</html>");
+            setText("<html><div style='text-align: center;'>&nbsp;&nbsp;" + tempTotal + "<br>-&nbsp;&nbsp;<font color=red>" + bulk + "</font><br>----------<br>$&nbsp;" + total + "</div></html>");
           }
           else {
-            setText("<html>&nbsp;&nbsp;&nbsp;" + tempTotal + "<br>  <br>----------<br>$&nbsp;" + tempTotal + "</html>");
+            setText("<html><div style='text-align: center;'>&nbsp;&nbsp;" + tempTotal + "<br>  <br>----------<br>$&nbsp;" + tempTotal + "</div></html>");
           }
         }
       });
