@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -8,7 +9,6 @@ public class Order extends JLabel {
   double tempTotal;
   double bulk;
   int noTickets;
-  JLabel orderTotal;
   
   public Order(Seat[] s) {
     for (int i = 0; i < s.length; i++) {
@@ -26,10 +26,10 @@ public class Order extends JLabel {
           if (noTickets > 4) {
             bulk = tempTotal * .3;
             total = tempTotal - bulk;
-            setText("$ " + total);
+            setText("<html>&nbsp;&nbsp;&nbsp;" + tempTotal + "<br>-&nbsp;&nbsp;<font color=red>" + bulk + "</font><br>----------<br>$&nbsp;" + total + "</html>");
           }
           else {
-            setText("$ " + tempTotal);
+            setText("<html>&nbsp;&nbsp;&nbsp;" + tempTotal + "<br>  <br>----------<br>$&nbsp;" + tempTotal + "</html>");
           }
         }
       });

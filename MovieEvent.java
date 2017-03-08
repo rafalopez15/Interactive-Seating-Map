@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -20,13 +21,15 @@ public class MovieEvent extends JPanel {
         }
       }
     });
+    TitledBorder titled = new TitledBorder("Order Summary");
     JPanel centerPanel = new JPanel();
     centerPanel.setPreferredSize(size);
+    order.setPreferredSize(new Dimension(200, 500));
     centerPanel.setLayout(new BorderLayout());
     centerPanel.add(getSeats(), BorderLayout.CENTER);
-    centerPanel.add(order, BorderLayout.SOUTH);
-    order.add(back);
-    order.add(new JLabel("Total: "));
+    centerPanel.add(order, BorderLayout.EAST);
+    //order.add(back);
+    order.setBorder(titled);
     order.add(new Order(seats));
     
     add(centerPanel);
