@@ -21,17 +21,18 @@ public class MovieEvent extends JPanel {
         }
       }
     });
-    TitledBorder titled = new TitledBorder("Order Summary");
+    TitledBorder titled = new TitledBorder("Order Details");
     titled.setTitleJustification(TitledBorder.CENTER);
     JPanel centerPanel = new JPanel();
     centerPanel.setPreferredSize(size);
-    order.setPreferredSize(new Dimension(150, 500));
+    order.setPreferredSize(new Dimension(100, 500));
     centerPanel.setLayout(new BorderLayout());
     centerPanel.add(getSeats(), BorderLayout.CENTER);
     centerPanel.add(order, BorderLayout.EAST);
     //order.add(back);
+    order.setLayout(new BorderLayout());
     order.setBorder(titled);
-    order.add(new Order(seats));
+    order.add(new Order(seats), BorderLayout.NORTH);
     
     add(centerPanel);
   }
