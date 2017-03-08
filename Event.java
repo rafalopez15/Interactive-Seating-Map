@@ -38,12 +38,14 @@ public class Event extends JFrame implements ActionListener{
     }
     
     startButton.addActionListener(this);
-    
+    backButton.addActionListener(this);
+    backButton.setVisible(false);
     JPanel northPanel = new JPanel();
     northPanel.add(statusBar);
     
     JPanel southPanel = new JPanel();
     southPanel.add(startButton);
+    southPanel.add(backButton);
 
     setStatus("Click Start to view events");
     setGridEnabled(false);
@@ -54,7 +56,7 @@ public class Event extends JFrame implements ActionListener{
     
     
     
-    setSize(600, 600);
+    setSize(1000, 900);
     
     setLocationRelativeTo(null);
     
@@ -77,21 +79,21 @@ public class Event extends JFrame implements ActionListener{
   }
   
   private void clickOne(int i, int j) {
-    
-    //grid[i][j].setText(chars); 
     if (i == 0 && j == 0) {
-      newContent.setPreferredSize(null);
       add(newContent, BorderLayout.CENTER);
       newContent.setVisible(true);
       centerPanel.setVisible(false);
-      pack();
+      //pack();
     }
+    
+    backButton.setVisible(true);
     
   }
   
   
   private void start() {
     setStatus("Please select event type");
+    newContent.setVisible(false);
     centerPanel.setVisible(true);
     setGridEnabled(true);
     //isPlay = true;
@@ -104,7 +106,11 @@ public class Event extends JFrame implements ActionListener{
       start();
       
       //checks to see if reset button was pressed
-    } 
+    }
+    else if (event.getSource() == backButton) {
+      start();
+      backButton.setVisible(false);
+    }
     
     // checks to see which space on the game board was pressed and whose turn it is 
     else {

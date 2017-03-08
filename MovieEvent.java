@@ -6,32 +6,20 @@ import java.awt.event.*;
 public class MovieEvent extends JPanel {
  
  Seat[] seats = new Seat[50];
-  JButton back = new JButton("Back");
   JPanel order = new JPanel();
   JLabel orderTotal = new JLabel();
   double total = 0.0;
-  Dimension size = new Dimension(500, 500);
+  Dimension size = new Dimension(600, 700);
   
   public MovieEvent() {
-    back.setPreferredSize(new Dimension(75, 50));
-    back.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == back){
-          setVisible(false);
-        }
-      }
-    });
-    TitledBorder titled = new TitledBorder("Order Details");
-    titled.setTitleJustification(TitledBorder.CENTER);
     JPanel centerPanel = new JPanel();
     centerPanel.setPreferredSize(size);
     order.setPreferredSize(new Dimension(100, 500));
     centerPanel.setLayout(new BorderLayout());
     centerPanel.add(getSeats(), BorderLayout.CENTER);
     centerPanel.add(order, BorderLayout.EAST);
-    //order.add(back);
     order.setLayout(new BorderLayout());
-    order.setBorder(titled);
+    //order.setStatus("Order Summary");
     order.add(new Order(seats), BorderLayout.NORTH);
     
     add(centerPanel);
