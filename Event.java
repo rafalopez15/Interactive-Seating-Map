@@ -28,6 +28,7 @@ public class Event extends JFrame implements ActionListener{
     setResizable(true);
     
     JCheckBox vipBox = new JCheckBox("VIP", false);
+    User user = new User("Name", false);
     // 
     Font font = new Font("MS Gothic", Font.BOLD, 40);
     for (int i = 0; i < 1; i++){
@@ -46,11 +47,12 @@ public class Event extends JFrame implements ActionListener{
     
     JPanel southPanel = new JPanel();
     southPanel.add(startButton);
+    southPanel.add(vipBox);
     
     // Check to see if the user is a VIP
-    /*if (vipBox.isSelected())
-      User.setVIP(true);
-    */
+    if (vipBox.isSelected())
+      user.setVIP(true);
+
     setStatus("Click Start to view events");
     setGridEnabled(false);
     
