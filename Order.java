@@ -10,19 +10,20 @@ public class Order extends JLabel {
   double discount;
   int noTickets;
   JCheckBox vipBox = new JCheckBox("VIP", false);
-  JLabel title = new JLabel;
   JLabel totDisplay = new JLabel();
+  Border blackline = BorderFactory.createLineBorder(Color.black);
+  TitledBorder summary;
   
   public Order(Seat[] s) {
-    setLayout(new GridBagLayout());
-    GridBagConstraints c = new GridBagConstraints();
-    setPreferredSize(new Dimension(100, 100));
+    summary = BorderFactory.createTitledBorder(blackline, "Order");
+    setBorder(summary);
+    setLayout(new BorderLayout(5, 2));
+    setPreferredSize(new Dimension(100, 200));
+    setVisible(true);
+    add(totDisplay, BorderLayout.EAST);
+    add(vipBox, BorderLayout.SOUTH);
     vipBox.setVisible(true);
-    c.weightx = 0.5;
-    c.gridx = 0;
-    c.gridy = 0;
-    add(vipBox, c);
-    add(totDisplay);
+    totDisplay.setText("<html><div style='text-align: center;'>&nbsp;&nbsp;" + tempTotal + "<br>  <br>----------<br>$&nbsp;" + tempTotal + "</div></html>");
     for (int i = 0; i < s.length; i++) {
       s[i].addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {

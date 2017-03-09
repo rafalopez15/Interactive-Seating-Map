@@ -13,13 +13,20 @@ public class MovieEvent extends JPanel {
   
   public MovieEvent() {
     JPanel centerPanel = new JPanel();
+    JPanel screen = new JPanel();
+    Border blackline = BorderFactory.createLineBorder(Color.black);
+    TitledBorder movie = BorderFactory.createTitledBorder(blackline);
+    screen.add(new JLabel("Scren"));
+    screen.setBorder(movie);
     centerPanel.setPreferredSize(size);
-    order.setPreferredSize(new Dimension(100, 500));
+    //screen.setPreferredSize(new Dimension(300, 100));
+    order.setPreferredSize(new Dimension(100, 300));
     centerPanel.setLayout(new BorderLayout());
     centerPanel.add(getSeats(), BorderLayout.CENTER);
     centerPanel.add(order, BorderLayout.EAST);
-    order.setLayout(new BorderLayout());
-    order.add(new Order(seats), BorderLayout.EAST);
+    centerPanel.add(screen, BorderLayout.NORTH);
+    //order.setLayout(new BorderLayout());
+    order.add(new Order(seats));
     
     add(centerPanel);
   }

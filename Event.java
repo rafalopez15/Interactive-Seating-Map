@@ -11,13 +11,13 @@ public class Event extends JFrame implements ActionListener{
   private JLabel statusBar = new JLabel("");
   JPanel centerPanel = new JPanel(new GridLayout(1, 3));
   JPanel newContent = new MovieEvent();
-  private boolean isSoldOut = false;
+  /*private boolean isSoldOut = false;
   public static final int eventOne = 0;
   public static final int eventTwo = 1;
   public static final int eventThree = 2;
   private int maxSeats = 100;
   private int human = 0;
-  
+  */
   private String chars = "X"; 
   
   
@@ -62,11 +62,11 @@ public class Event extends JFrame implements ActionListener{
     setLocationRelativeTo(null);
     
   }
-  
+
   private void setStatus(String s) {
     statusBar.setText(s);
   }
-  
+
   public void setGridEnabled(boolean enabled) {
     for (int i = 0; i < 1; i++)
       for (int j = 0; j < 3; j++) {
@@ -93,7 +93,7 @@ public class Event extends JFrame implements ActionListener{
   
   
   private void start() {
-    setStatus("Please select event type");
+    setStatus("Events");
     newContent.setVisible(false);
     centerPanel.setVisible(true);
     setGridEnabled(true);
