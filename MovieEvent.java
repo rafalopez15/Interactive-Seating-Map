@@ -38,7 +38,7 @@ public class MovieEvent extends JFrame {
     for (int i = 0; i < seats.length; i++) {
       seats[i] = new Seat();
       seats[i].setPrice(10.0);
-      seats[i].setText("");
+      seats[i].setText(Integer.toString((i+1)));
       gridSeats.add(seats[i]);
     }
     return gridSeats;
