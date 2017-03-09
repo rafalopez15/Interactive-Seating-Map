@@ -7,10 +7,29 @@ import java.awt.*;
 
 public class EventGame extends JFrame implements ActionListener {
 	
-	private String statusBar = " Game Event Seating Layout ";
+	
+	private String statusBar = " Please Select Section ";
+	private JButton court = new JButton (statusBar);
+
+	
+	public static int northCtr = 0;
+	public static int upperNorthCtr = 0;
+	public static int southhCtr = 0;
+	public static int upperSouthCtr = 0;
+	public static int westCtr = 0;
+	public static int eastCtr = 0;
+	
+	Seat [] northSeating = new Seat[5];
+	Seat [] southSeating = new Seat[5];
+	Seat [] upperNorthSeating = new Seat[10];
+	Seat [] upperSouthSeating = new Seat[10];
+	Seat [] eastSeating = new Seat[30];
+	Seat [] westSeating = new Seat[30];
+
 	
 	JFrame seatingDisplay = new JFrame();
 	JPanel centerPanel = new JPanel();
+	JPanel order = new JPanel();
 	
 	JToggleButton north1 = new JToggleButton("North");
 	JToggleButton north2 = new JToggleButton("Upper North");
@@ -19,35 +38,42 @@ public class EventGame extends JFrame implements ActionListener {
 	JToggleButton west = new JToggleButton("West");
 	JToggleButton east = new JToggleButton("East");
 	
+	
 	public static int nsx = 1;
 	public static int y1 = 5;
 	public static int y2 = 15;
 	public static int ewx = 10;
 	public static int ewy = 3;
 	
-	public static Dimension upperD = new Dimension(500,150);
-	public static Dimension northSouthD = new Dimension(300,150);
-	public static Dimension eastWestD = new Dimension(400,500);
+
 	
-	
-	public EventGame(){
+	public EventGame() throws IOException{
 		
-		setTitle("Game");
+		
+		
+		setTitle("Game Event Seating");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
+		
+		setSize(550,300);
+		
+		//Image img = ImageIO.read(getClass().getResource());
+		//court.setIcon(new ImageIcon(img));
+		//court.setContentAreaFilled(false);
 		
 		
 		centerPanel.setLayout(new BorderLayout());
 		centerPanel.add(north1, BorderLayout.NORTH);
-		centerPanel.add(new Button (statusBar), BorderLayout.CENTER);
+		centerPanel.add(court, BorderLayout.CENTER);
+		Font font = new Font("MS Gothic", Font.BOLD, 26);
+		court.setFont(font);
+		court.setEnabled(false);
+		
 		centerPanel.add(south1, BorderLayout.SOUTH);
 		
 		
+		north1.setForeground(Color.BLACK);
 		
-		//centerPanel.add(new Button ("East"), BorderLayout.EAST);
-		//centerPanel.add(new Button ("West"), BorderLayout.WEST);
-		
-		//centerPanel.setPreferredSize(new Dimension(50, 50));
 		
 		
 		setLayout(new BorderLayout());
@@ -56,11 +82,8 @@ public class EventGame extends JFrame implements ActionListener {
 		add(west, BorderLayout.WEST);
 		add(centerPanel, BorderLayout.CENTER);
 		add(south2, BorderLayout.SOUTH);
-		
-		
-		setSize(500, 500);
-		
-		
+	
+
 		north1.addActionListener(this);
 		north2.addActionListener(this);
 		south1.addActionListener(this);
@@ -68,91 +91,83 @@ public class EventGame extends JFrame implements ActionListener {
 		east.addActionListener(this);
 		west.addActionListener(this);
 		
-		
-		
-		
 	}
 	
-	public void setEnabled(boolean enabled) {
-	  
-		
-		north1.setEnabled(enabled);
-		north2.setEnabled(enabled);
-		south1.setEnabled(enabled);
-		south2.setEnabled(enabled);
-		west.setEnabled(enabled);
-		east.setEnabled(enabled);
-	  
-		
-	 }
-	  
-		  
-	
-	
-	/*
-	public JFrame seatingGrid(int x, int y){
-		
-		
-		seatingDisplay.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		seatingDisplay.setLayout(new BorderLayout());
-		
-		JPanel seats = new JPanel(new GridLayout(x,y));
-		if(x == nsx && y == y1){
-			seatingDisplay.setSize(upperD);
-		}
-		else if(x == nsx && y == y2){
-			seatingDisplay.setSize(northSouthD);
-		}
-		else if(x == ewx && y == ewy){
-			seatingDisplay.setSize(new Dimension(400,400));
-		}
-		
-		JToggleButton[][] grid = new JToggleButton[x][y];
-		Font font = new Font("MS Gothic", Font.BOLD, 10);
-		for (int i = 0; i < x; i++){
-			for (int j = 0; j < y; j++) {
-				grid[i][j] = new JToggleButton(" ");
-				grid[i][j].setFont(font);
-				grid[i][j].addActionListener(this);
-				seats.add(grid[i][j]);
-			}
-		}
-		seatingDisplay.add(seats, BorderLayout.CENTER);
-		//seatingDisplay.setSize(new Dimension(500,500));
-		seatingDisplay.setVisible(true);
-		seatingDisplay.setLayout(null);
-		
-		
-		
-		return seatingDisplay;
-		
-		
-	}
-	*/
 	
 	public void actionPerformed(ActionEvent e) {
-		//JToggleButton check =  (JToggleButton) e.getSource();
 		if(e.getSource() == north2 || e.getSource() == south2){
 			seatingDisplay = new SeatingDisplay(nsx,y2);
-			//seatingDisplay.setPreferredSize(upperD);
+			seatingDisplay.setLayout(new BorderLayout());
+			seatingDisplay.add(getUpperNsSeating(nsx,y2), BorderLayout.CENTER);
+			seatingDisplay.add(order, BorderLayout.EAST);
+			order.setLayout(new BorderLayout());
+		    order.add(new Order(upperNorthSeating), BorderLayout.NORTH);		
+			
 		}
 		
 		else if(e.getSource() == north1 || e.getSource() == south1){
 			seatingDisplay = new SeatingDisplay(nsx, y1);
-			//seatingDisplay.setPreferredSize(northSouthD);
+			seatingDisplay.setLayout(new BorderLayout());
+			seatingDisplay.add(getNsSeating(nsx,y1), BorderLayout.CENTER);
+			seatingDisplay.add(order, BorderLayout.EAST);
+			order.setLayout(new BorderLayout());
+		    order.add(new Order(northSeating), BorderLayout.NORTH);			
 		}
 		
 		
 		else if( e.getSource() == east || e.getSource() == west){
 			seatingDisplay = new SeatingDisplay(ewx, ewy);
-			//seatingDisplay.setPreferredSize(new Dimension(600,600));
-			
+			seatingDisplay.setLayout(new BorderLayout());
+			seatingDisplay.add(getEwSeating(ewx,ewy), BorderLayout.CENTER);
+			seatingDisplay.add(order, BorderLayout.EAST);
+			order.setLayout(new BorderLayout());
+			Order eSeating = new Order(eastSeating);
+		    order.add(eSeating, BorderLayout.NORTH);
 		}
 	}
-
-
 	
-	public static void main (String [] args){
+	
+	public JComponent getNsSeating( int x, int y) {
+	    JPanel gridSeats = new JPanel();
+	    gridSeats.setLayout(new GridLayout(x, y));
+	    for (int i = 0; i < northSeating.length; i++) {
+	      northSeating[i] = new Seat();
+	      northSeating[i].setPrice(15.0);
+	      northSeating[i].setText("");
+	      gridSeats.add(northSeating[i]);
+	    }
+	    return gridSeats;
+	  }
+	
+	
+	public JComponent getUpperNsSeating( int x, int y) {
+	    JPanel gridSeats = new JPanel();
+	    gridSeats.setLayout(new GridLayout(x, y));
+	    for (int i = 0; i < upperNorthSeating.length; i++) {
+	      upperNorthSeating[i] = new Seat();
+	      upperNorthSeating[i].setPrice(10.0);
+	      upperNorthSeating[i].setText("");
+	      gridSeats.add(upperNorthSeating[i]);
+	    }
+	    return gridSeats;
+	  }
+	
+	
+	public JComponent getEwSeating( int x, int y) {
+	    JPanel gridSeats = new JPanel();
+	    gridSeats.setLayout(new GridLayout(x, y));
+	    for (int i = 0; i < eastSeating.length; i++) {
+	      eastSeating[i] = new Seat();
+	      eastSeating[i].setPrice(12.5);
+	      eastSeating[i].setText("");
+	      gridSeats.add(eastSeating[i]);
+	    }
+	    return gridSeats;
+	  }
+	
+	
+	
+	public static void main (String [] args) throws IOException{
 		new EventGame().setVisible(true);
 		
 	}
@@ -160,3 +175,5 @@ public class EventGame extends JFrame implements ActionListener {
 	
 
 }
+	
+	
