@@ -10,14 +10,19 @@ public class Order extends JLabel {
   double discount;
   int noTickets;
   JCheckBox vipBox = new JCheckBox("VIP", false);
+  JLabel title = new JLabel;
   JLabel totDisplay = new JLabel();
   
   public Order(Seat[] s) {
-    setLayout(new BorderLayout());
+    setLayout(new GridBagLayout());
+    GridBagConstraints c = new GridBagConstraints();
     setPreferredSize(new Dimension(100, 100));
     vipBox.setVisible(true);
-    add(totDisplay, BorderLayout.NORTH);
-    add(vipBox, BorderLayout.CENTER);
+    c.weightx = 0.5;
+    c.gridx = 0;
+    c.gridy = 0;
+    add(vipBox, c);
+    add(totDisplay);
     for (int i = 0; i < s.length; i++) {
       s[i].addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {

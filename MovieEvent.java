@@ -19,8 +19,7 @@ public class MovieEvent extends JPanel {
     centerPanel.add(getSeats(), BorderLayout.CENTER);
     centerPanel.add(order, BorderLayout.EAST);
     order.setLayout(new BorderLayout());
-    //order.setStatus("Order Summary");
-    order.add(new Order(seats), BorderLayout.NORTH);
+    order.add(new Order(seats), BorderLayout.EAST);
     
     add(centerPanel);
   }

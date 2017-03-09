@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Event extends JFrame implements ActionListener{
   
-  private JButton startButton = new JButton("Start");
+  //private JButton startButton = new JButton("Start");
   private JButton backButton = new JButton("Back");
   private JButton[][] grid = new JButton[1][3];
   private JLabel statusBar = new JLabel("");
@@ -37,18 +37,19 @@ public class Event extends JFrame implements ActionListener{
       }
     }
     
-    startButton.addActionListener(this);
+    //startButton.addActionListener(this);
+    start();
     backButton.addActionListener(this);
     backButton.setVisible(false);
     JPanel northPanel = new JPanel();
     northPanel.add(statusBar);
     
     JPanel southPanel = new JPanel();
-    southPanel.add(startButton);
+    //southPanel.add(startButton);
     southPanel.add(backButton);
 
-    setStatus("Click Start to view events");
-    setGridEnabled(false);
+    //setStatus("Click Start to view events");
+    //setGridEnabled(false);
     
     add(northPanel, "North");
     add(centerPanel, "Center");
@@ -102,12 +103,12 @@ public class Event extends JFrame implements ActionListener{
   
   public void actionPerformed(ActionEvent event) {
     // checks to see if play button was pressed
-    if (event.getSource() == startButton) {
+    /*if (event.getSource() == startButton) {
       start();
       
       //checks to see if reset button was pressed
-    }
-    else if (event.getSource() == backButton) {
+    }*/
+    if (event.getSource() == backButton) {
       start();
       backButton.setVisible(false);
     }
