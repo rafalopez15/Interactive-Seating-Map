@@ -62,9 +62,9 @@ public class Event extends JFrame implements ActionListener{
       for (int j = 0; j < 3; j++) {
       grid[i][j].setEnabled(enabled);
       if (enabled) {
-        grid[0][0].setIcon((new ImageIcon(getClass().getResource("movie.png"))));
-        grid[0][1].setIcon(new ImageIcon(getClass().getResource("game.png")));
-        grid[0][2].setIcon(new ImageIcon(getClass().getResource("concert.png")));
+        grid[0][0].setIcon((new ImageIcon(getClass().getResource("images/movie.png"))));
+        grid[0][1].setIcon(new ImageIcon(getClass().getResource("images/game.png")));
+        grid[0][2].setIcon(new ImageIcon(getClass().getResource("images/concert.png")));
       }
     }
   }
@@ -77,8 +77,8 @@ public class Event extends JFrame implements ActionListener{
     }
     
     else if ( i == 0 && j == 1){
-    	gameContent.setVisible(true);
-    	gameContent.setLocationRelativeTo(this);
+     gameContent.setVisible(true);
+     gameContent.setLocationRelativeTo(this);
     }
     
   }
