@@ -2,9 +2,9 @@
 Advanced OOP Project
 
 ## Group Members
-'''
-- Rafael Lopez
-- Andrew Duron
-- Amin Karabash
-- Alejandra Licon
+```
+Rafael Lopez
+Andrew Duron
+Amin Karabash
+Alejandra Licon
 '''
