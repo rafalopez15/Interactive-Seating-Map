@@ -6,13 +6,15 @@ import java.awt.event.*;
 public class MovieEvent extends JFrame {
 
   Seat[] seats = new Seat[50];
+  Order newOrder = new Order();
   JPanel order = new JPanel();
   JLabel orderTotal = new JLabel();
+  JButton done = new JButton("Checkout");
   double total = 0.0;
   Dimension size = new Dimension(550, 600);
 
   public MovieEvent() {
-      setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     JPanel screen = new JPanel();
     setSize(500, 500);
     setLayout(new BorderLayout());
@@ -26,8 +28,10 @@ public class MovieEvent extends JFrame {
     add(getSeats(), BorderLayout.CENTER);
     add(order, BorderLayout.EAST);
     add(screen, BorderLayout.NORTH);
-    order.add(new Order(seats));
-
+    newOrder = new Order(seats);
+    order.add(newOrder);
+    done.addActionListener(this::ActionListener);
+    order.add(done);
 
   }
 
@@ -42,6 +46,14 @@ public class MovieEvent extends JFrame {
       gridSeats.add(seats[i]);
     }
     return gridSeats;
+  }
+
+  public void ActionListener(ActionEvent e) {
+    if (e.getSource() == done) {
+      Checkout test = new Checkout(newOrder);
+      test.setVisible(true);
+    }
+
   }
 
 }

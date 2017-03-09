@@ -13,6 +13,9 @@ public class Order extends JLabel {
   JLabel totDisplay = new JLabel();
   Border blackline = BorderFactory.createLineBorder(Color.black);
   TitledBorder summary;
+
+  public Order() {
+  }
   
   public Order(Seat[] s) {
     summary = BorderFactory.createTitledBorder(blackline, "Order");
@@ -39,18 +42,49 @@ public class Order extends JLabel {
           if (noTickets > 4 && !vipBox.isSelected()) {
             discount = tempTotal * .1;
             total = tempTotal - discount;
+            setTotal(total);
+            setTempTotal(tempTotal);
+            setDiscount(discount);
             totDisplay.setText("<html><div style='text-align: center;'>&nbsp;&nbsp;" + tempTotal + "<br>-&nbsp;&nbsp;<font color=red>" + discount + "</font><br>----------<br>$&nbsp;" + total + "</div></html>");
           }
           else if (vipBox.isSelected()) {
             discount = tempTotal * .2;
             total = tempTotal - discount;
+            setTotal(total);
+            setTempTotal(tempTotal);
+            setDiscount(discount);
             totDisplay.setText("<html><div style='text-align: center;'>&nbsp;&nbsp;" + tempTotal + "<br>-&nbsp;&nbsp;<font color=red>" + discount + "</font><br>----------<br>$&nbsp;" + total + "</div></html>");
           }
           else {
+            setTotal(total);
             totDisplay.setText("<html><div style='text-align: center;'>&nbsp;&nbsp;" + tempTotal + "<br>  <br>----------<br>$&nbsp;" + tempTotal + "</div></html>");
           }
         }
       });
     }
+  }
+
+  public void setTotal(double t) {
+    total = t;
+  }
+
+  public void setTempTotal(double tt) {
+    tempTotal = tt;
+  }
+
+  public void setDiscount(double d) {
+    discount = d;
+  }
+
+  public double getTotal() {
+    return total;
+  }
+
+  public double getTempTotal() {
+    return tempTotal;
+  }
+
+  public double getDiscount() {
+    return discount;
   }
 }
