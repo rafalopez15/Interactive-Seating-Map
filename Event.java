@@ -11,6 +11,7 @@ public class Event extends JFrame implements ActionListener{
   private JLabel statusBar = new JLabel("");
   JPanel centerPanel = new JPanel(new GridLayout(1, 3));
   JFrame newContent = new MovieEvent();
+  JFrame gameContent = new EventGame();
   
   
   public Event(){
@@ -73,6 +74,11 @@ public class Event extends JFrame implements ActionListener{
       //add(newContent);
       newContent.setVisible(true);
       newContent.setLocationRelativeTo(null);
+    }
+    
+    else if ( i == 0 && j == 1){
+    	gameContent.setVisible(true);
+    	gameContent.setLocationRelativeTo(this);
     }
     
   }
