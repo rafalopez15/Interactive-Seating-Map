@@ -52,7 +52,7 @@ public class EventGame extends JFrame implements ActionListener {
 		
 		
 		setTitle("Game Event Seating");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		
 		setSize(550,300);
@@ -60,8 +60,8 @@ public class EventGame extends JFrame implements ActionListener {
 		court.setBorderPainted(false);
 		court.setFocusPainted(false);
 		court.setContentAreaFilled(false);
-		court.setIcon(new ImageIcon(getClass().getResource("bball.png")));
-		court.setDisabledIcon(new ImageIcon(getClass().getResource("bball.png")));
+		court.setIcon(new ImageIcon(getClass().getResource("images/bball.png")));
+		court.setDisabledIcon(new ImageIcon(getClass().getResource("images/bball.png")));
 
 		centerPanel.setLayout(new BorderLayout());
 		centerPanel.add(north1, BorderLayout.NORTH);
