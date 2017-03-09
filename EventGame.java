@@ -96,7 +96,7 @@ public class EventGame extends JFrame implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == north2 || e.getSource() == south2){
-			seatingDisplay = new GameSeatingDisplay(nsx,y2);
+			seatingDisplay = new SeatingDisplay(nsx,y2);
 			seatingDisplay.setLayout(new BorderLayout());
 			seatingDisplay.add(getUpperNsSeating(nsx,y2), BorderLayout.CENTER);
 			seatingDisplay.add(order, BorderLayout.EAST);
@@ -106,7 +106,7 @@ public class EventGame extends JFrame implements ActionListener {
 		}
 		
 		else if(e.getSource() == north1 || e.getSource() == south1){
-			seatingDisplay = new GameSeatingDisplay(nsx, y1);
+			seatingDisplay = new SeatingDisplay(nsx, y1);
 			seatingDisplay.setLayout(new BorderLayout());
 			seatingDisplay.add(getNsSeating(nsx,y1), BorderLayout.CENTER);
 			seatingDisplay.add(order, BorderLayout.EAST);
@@ -116,7 +116,7 @@ public class EventGame extends JFrame implements ActionListener {
 		
 		
 		else if( e.getSource() == east || e.getSource() == west){
-			seatingDisplay = new GameSeatingDisplay(ewx, ewy);
+			seatingDisplay = new SeatingDisplay(ewx, ewy);
 			seatingDisplay.setLayout(new BorderLayout());
 			seatingDisplay.add(getEwSeating(ewx,ewy), BorderLayout.CENTER);
 			seatingDisplay.add(order, BorderLayout.EAST);
