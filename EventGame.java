@@ -47,7 +47,7 @@ public class EventGame extends JFrame implements ActionListener {
 	
 
 	
-	public EventGame() throws IOException{
+	public EventGame() {
 		
 		
 		
@@ -56,12 +56,13 @@ public class EventGame extends JFrame implements ActionListener {
 		setResizable(false);
 		
 		setSize(550,300);
-		
-		//Image img = ImageIO.read(getClass().getResource());
-		//court.setIcon(new ImageIcon(img));
-		//court.setContentAreaFilled(false);
-		
-		
+
+		court.setBorderPainted(false);
+		court.setFocusPainted(false);
+		court.setContentAreaFilled(false);
+		court.setIcon(new ImageIcon(getClass().getResource("bball.png")));
+		court.setDisabledIcon(new ImageIcon(getClass().getResource("bball.png")));
+
 		centerPanel.setLayout(new BorderLayout());
 		centerPanel.add(north1, BorderLayout.NORTH);
 		centerPanel.add(court, BorderLayout.CENTER);
@@ -167,7 +168,7 @@ public class EventGame extends JFrame implements ActionListener {
 	
 	
 	
-	public static void main (String [] args) throws IOException{
+	public static void main (String [] args) {
 		new EventGame().setVisible(true);
 		
 	}
