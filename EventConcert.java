@@ -1,41 +1,68 @@
 
-/*
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class EventConcert extends JFrame implements ActionListener{
 
-	private String statusBar = " Please Select Section ";
-	private JButton court = new JButton (statusBar);
 
-	Seat [] eastSeating = new Seat[30];
-	Seat [] westSeating = new Seat[30];
-	Seat [] middleSeating = new Seat[30];
 
-	private JButton[][] grid = new JButton[3][1];
-
+public class EventConcert extends JFrame implements ActionListener {
+	JLabel stageLabel = new JLabel("This is a label", SwingConstants.CENTER);
+	JToggleButton north1 = new JToggleButton("North");
+	JToggleButton middle = new JToggleButton("Middle");
+	JToggleButton south = new JToggleButton("South");
+	JFrame seatingDisplay = new JFrame();
+	
+	public static int nsx = 1;
+	public static int y1 = 5;
+	public static int y2 = 15;
+	public static int ewx = 10;
+	public static int ewy = 3;
+	
+	public static Dimension upperD = new Dimension(500,150);
+	public static Dimension northSouthD = new Dimension(300,150);
+	public static Dimension eastWestD = new Dimension(400,500);
+	
 	public EventConcert(){
+		 
+		setLayout(new GridLayout(4,1));
+		setSize(500, 500); 
+		north1.addActionListener(this);
+		add(stageLabel);
+		add(north1);
+		add(middle);
+		add(south);
+		
+		north1.addActionListener(this);
+		middle.addActionListener(this);
+		south.addActionListener(this);
+		
+		
+	}
 
-		for (int i = 0; i < 3; i++){
-		      for (int j = 0; j < 1; j++) {
-		        grid[i][j] = new JButton(" ");
-		      }
-		}
+	public void setEnabled(boolean enabled) {
+		north1.setEnabled(enabled);
+		middle.setEnabled(enabled);
+		south.setEnabled(enabled);
 
+			  
+		
+	 }
+	  
+			
+	public void actionPerformed(ActionEvent e) {
+		seatingDisplay = new SeatingDisplay(nsx,y2);
+		
 	}
 
 
-	public JComponent getEastSeating( int x, int y) {
-	    JPanel gridSeats = new JPanel();
-	    gridSeats.setLayout(new GridLayout(x, y));
-	    for (int i = 0; i < eastSeating.length; i++) {
-	      eastSeating[i] = new Seat();
-	      eastSeating[i].setPrice(15.0);
-	      eastSeating[i].setText("");
-	      gridSeats.add(eastSeating[i]);
-	    }
-	    return gridSeats;
-	  }
+	
+	public static void main (String [] args){
+		new EventConcert().setVisible(true);
+		
+	}
+	
+	
+
 }
-*/
+
