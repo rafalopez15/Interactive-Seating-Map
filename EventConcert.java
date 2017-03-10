@@ -22,7 +22,8 @@ public class EventConcert extends JFrame implements ActionListener {
 	
 	
 	public EventConcert(){
-		
+		stageLabel.setOpaque(true);
+       		stageLabel.setBackground(Color.white);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 
 		setLayout(new GridLayout(4,1));
