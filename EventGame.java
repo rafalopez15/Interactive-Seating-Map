@@ -27,9 +27,9 @@ public class EventGame extends JFrame implements ActionListener {
 	Seat [] westSeating = new Seat[30];
 
 	
-	JFrame seatingDisplay = new JFrame();
+	
 	JPanel centerPanel = new JPanel();
-	JPanel order = new JPanel();
+	
 	
 	JToggleButton north1 = new JToggleButton("North");
 	JToggleButton north2 = new JToggleButton("Upper North");
@@ -96,39 +96,80 @@ public class EventGame extends JFrame implements ActionListener {
 	
 	
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == north2 || e.getSource() == south2){
-			seatingDisplay = new SeatingDisplay(nsx,y2);
-			seatingDisplay.setLayout(new BorderLayout());
-			seatingDisplay.add(getUpperNsSeating(nsx,y2), BorderLayout.CENTER);
-			seatingDisplay.add(order, BorderLayout.EAST);
-			order.setLayout(new BorderLayout());
-		    order.add(new Order(upperNorthSeating), BorderLayout.NORTH);		
+		if(e.getSource() == north2 ){
+			JFrame seatingDisplayUNorth = new JFrame();
+			seatingDisplayUNorth = new SeatingDisplay(nsx,y2);
+			seatingDisplayUNorth.setLayout(new BorderLayout());
+			JPanel orderUNorth = new JPanel();
+			seatingDisplayUNorth.add(getUpperNSeating(nsx,y2), BorderLayout.CENTER);
+			seatingDisplayUNorth.add(orderUNorth, BorderLayout.EAST);
+			orderUNorth.setLayout(new BorderLayout());
+		    orderUNorth.add(new Order(upperNorthSeating), BorderLayout.NORTH);	
+		    //seatingDisplayUNorth.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 			
 		}
+		else if (e.getSource() == south2){
+			JFrame seatingDisplayUSouth = new JFrame();
+			JPanel orderUSouth = new JPanel();
+			seatingDisplayUSouth = new SeatingDisplay(nsx,y2);
+			seatingDisplayUSouth.setLayout(new BorderLayout());
+			seatingDisplayUSouth.add(getUpperSSeating(nsx,y2), BorderLayout.CENTER);
+			seatingDisplayUSouth.add(orderUSouth, BorderLayout.EAST);
+			orderUSouth.setLayout(new BorderLayout());
+		    orderUSouth.add(new Order(upperSouthSeating), BorderLayout.NORTH);	
+		    
+		}
 		
-		else if(e.getSource() == north1 || e.getSource() == south1){
-			seatingDisplay = new SeatingDisplay(nsx, y1);
-			seatingDisplay.setLayout(new BorderLayout());
-			seatingDisplay.add(getNsSeating(nsx,y1), BorderLayout.CENTER);
-			seatingDisplay.add(order, BorderLayout.EAST);
-			order.setLayout(new BorderLayout());
-		    order.add(new Order(northSeating), BorderLayout.NORTH);			
+		else if(e.getSource() == north1){
+			JFrame seatingDisplayNorth = new JFrame();
+			JPanel orderNorth = new JPanel();
+			seatingDisplayNorth = new SeatingDisplay(nsx, y1);
+			seatingDisplayNorth.setLayout(new BorderLayout());
+			seatingDisplayNorth.add(getNSeating(nsx,y1), BorderLayout.CENTER);
+			seatingDisplayNorth.add(orderNorth, BorderLayout.EAST);
+			orderNorth.setLayout(new BorderLayout());
+		    orderNorth.add(new Order(northSeating), BorderLayout.NORTH);
+		}
+		
+		else if (e.getSource() == south1){
+			JFrame seatingDisplaySouth = new JFrame();
+			JPanel orderSouth = new JPanel();
+			seatingDisplaySouth = new SeatingDisplay(nsx, y1);
+			seatingDisplaySouth.setLayout(new BorderLayout());
+			seatingDisplaySouth.add(getSSeating(nsx,y1), BorderLayout.CENTER);
+			seatingDisplaySouth.add(orderSouth, BorderLayout.EAST);
+			orderSouth.setLayout(new BorderLayout());
+		    orderSouth.add(new Order(southSeating), BorderLayout.NORTH);			
 		}
 		
 		
-		else if( e.getSource() == east || e.getSource() == west){
-			seatingDisplay = new SeatingDisplay(ewx, ewy);
-			seatingDisplay.setLayout(new BorderLayout());
-			seatingDisplay.add(getEwSeating(ewx,ewy), BorderLayout.CENTER);
-			seatingDisplay.add(order, BorderLayout.EAST);
-			order.setLayout(new BorderLayout());
+		else if( e.getSource() == east){
+			JFrame seatingDisplayEast = new JFrame();
+			JPanel orderEast = new JPanel();
+			seatingDisplayEast = new SeatingDisplay(ewx, ewy);
+			seatingDisplayEast.setLayout(new BorderLayout());
+			seatingDisplayEast.add(getESeating(ewx,ewy), BorderLayout.CENTER);
+			seatingDisplayEast.add(orderEast, BorderLayout.EAST);
+			orderEast.setLayout(new BorderLayout());
 			Order eSeating = new Order(eastSeating);
-		    order.add(eSeating, BorderLayout.NORTH);
+		    orderEast.add(eSeating, BorderLayout.NORTH);
+		}
+		
+		else if( e.getSource() == west){
+			JFrame seatingDisplayWest = new JFrame();
+			JPanel orderWest = new JPanel();
+			seatingDisplayWest = new SeatingDisplay(ewx, ewy);
+			seatingDisplayWest.setLayout(new BorderLayout());
+			seatingDisplayWest.add(getWSeating(ewx,ewy), BorderLayout.CENTER);
+			seatingDisplayWest.add(orderWest, BorderLayout.EAST);
+			orderWest.setLayout(new BorderLayout());
+			Order wSeating = new Order(westSeating);
+		    orderWest.add(wSeating, BorderLayout.NORTH);
 		}
 	}
 	
 	
-	public JComponent getNsSeating( int x, int y) {
+	public JComponent getNSeating( int x, int y) {
 	    JPanel gridSeats = new JPanel();
 	    gridSeats.setLayout(new GridLayout(x, y));
 	    for (int i = 0; i < northSeating.length; i++) {
@@ -140,8 +181,33 @@ public class EventGame extends JFrame implements ActionListener {
 	    return gridSeats;
 	  }
 	
+	public JComponent getSSeating( int x, int y) {
+	    JPanel gridSeats = new JPanel();
+	    gridSeats.setLayout(new GridLayout(x, y));
+	    for (int i = 0; i < southSeating.length; i++) {
+	      southSeating[i] = new Seat();
+	      southSeating[i].setPrice(15.0);
+	      southSeating[i].setText("");
+	      gridSeats.add(southSeating[i]);
+	    }
+	    return gridSeats;
+	  }
 	
-	public JComponent getUpperNsSeating( int x, int y) {
+	
+	public JComponent getUpperSSeating( int x, int y) {
+	    JPanel gridSeats = new JPanel();
+	    gridSeats.setLayout(new GridLayout(x, y));
+	    for (int i = 0; i < upperSouthSeating.length; i++) {
+	      upperSouthSeating[i] = new Seat();
+	      upperSouthSeating[i].setPrice(10.0);
+	      upperSouthSeating[i].setText("");
+	      gridSeats.add(upperSouthSeating[i]);
+	    }
+	    return gridSeats;
+	  }
+	
+	
+	public JComponent getUpperNSeating( int x, int y) {
 	    JPanel gridSeats = new JPanel();
 	    gridSeats.setLayout(new GridLayout(x, y));
 	    for (int i = 0; i < upperNorthSeating.length; i++) {
@@ -153,8 +219,7 @@ public class EventGame extends JFrame implements ActionListener {
 	    return gridSeats;
 	  }
 	
-	
-	public JComponent getEwSeating( int x, int y) {
+	public JComponent getESeating( int x, int y) {
 	    JPanel gridSeats = new JPanel();
 	    gridSeats.setLayout(new GridLayout(x, y));
 	    for (int i = 0; i < eastSeating.length; i++) {
@@ -162,6 +227,18 @@ public class EventGame extends JFrame implements ActionListener {
 	      eastSeating[i].setPrice(12.5);
 	      eastSeating[i].setText("");
 	      gridSeats.add(eastSeating[i]);
+	    }
+	    return gridSeats;
+	  }
+	
+	public JComponent getWSeating( int x, int y) {
+	    JPanel gridSeats = new JPanel();
+	    gridSeats.setLayout(new GridLayout(x, y));
+	    for (int i = 0; i < westSeating.length; i++) {
+	      westSeating[i] = new Seat();
+	      westSeating[i].setPrice(12.5);
+	      westSeating[i].setText("");
+	      gridSeats.add(westSeating[i]);
 	    }
 	    return gridSeats;
 	  }

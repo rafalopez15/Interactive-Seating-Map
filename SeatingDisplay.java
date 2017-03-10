@@ -26,7 +26,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		
 		setTitle("Section");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
 		
 	
@@ -44,6 +44,8 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		
 		setVisible(true);
 		setLayout(null);
+		
+		
 		
 	}
 	
