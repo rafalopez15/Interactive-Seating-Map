@@ -4,9 +4,15 @@ import java.awt.event.*;
 import java.awt.*;
 
 
+/**
+ * @author Group 4
+ * Last Updated: 3/10/2017
+ * EventConcert: Concert event layout, sections, seats, sets prices
+ *
+ */
 public class EventConcert extends JFrame implements ActionListener {
 	JLabel stageLabel = new JLabel(new ImageIcon(getClass().getResource("/images/stage.png")));
-	JToggleButton north1 = new JToggleButton("North");
+	JToggleButton north = new JToggleButton("North");
 	JToggleButton middle = new JToggleButton("Middle");
 	JToggleButton south = new JToggleButton("South");
 	//JFrame seatingDisplay = new JFrame();
@@ -25,6 +31,10 @@ public class EventConcert extends JFrame implements ActionListener {
 	
 	
 	
+	/**
+	 * Constructor
+	 * sets sections of the concert layout, north, middle, south, and adds them to a grid layout.
+	 */
 	public EventConcert(){
 		stageLabel.setOpaque(true);
        		stageLabel.setBackground(Color.white);
@@ -34,19 +44,22 @@ public class EventConcert extends JFrame implements ActionListener {
 		setSize(500, 500); 
 		
 		add(stageLabel);
-		add(north1);
+		add(north);
 		add(middle);
 		add(south);
 		
-		north1.addActionListener(this);
+		north.addActionListener(this);
 		middle.addActionListener(this);
 		south.addActionListener(this);
 	}
 			
+	/* actionPerdormed, generates the seatingDisplays depending on clicked section.
+	 * @param button(section) clicked
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getSource() == north1){
-			north1.setEnabled(true);
+		if(e.getSource() == north){
+			north.setEnabled(true);
 			JFrame seatingDisplayNorth = new JFrame();
 			seatingDisplayNorth = new SeatingDisplay(conx,conNy);
 			seatingDisplayNorth.setTitle(" North Section ");
@@ -69,44 +82,10 @@ public class EventConcert extends JFrame implements ActionListener {
 		
 	}
 	
-	public JComponent getNSeating( int x, int y) {
-	    JPanel gridSeats = new JPanel();
-	    gridSeats.setLayout(new GridLayout(x, y));
-	    for (int i = 0; i < northSeating.length; i++) {
-	      northSeating[i] = new Seat();
-	      northSeating[i].setPrice(20.0);
-	      northSeating[i].setText("");
-	      gridSeats.add(northSeating[i]);
-	    }
-	    return gridSeats;
-	  }
-
 	
-	public JComponent getMSeating( int x, int y) {
-	    JPanel gridSeats = new JPanel();
-	    gridSeats.setLayout(new GridLayout(x, y));
-	    for (int i = 0; i < middleSeating.length; i++) {
-	      middleSeating[i] = new Seat();
-	      middleSeating[i].setPrice(15.0);
-	      middleSeating[i].setText("");
-	      gridSeats.add(middleSeating[i]);
-	    }
-	    return gridSeats;
-	  }
-	
-	public JComponent getSSeating( int x, int y) {
-	    JPanel gridSeats = new JPanel();
-	    gridSeats.setLayout(new GridLayout(x, y));
-	    for (int i = 0; i < southSeating.length; i++) {
-	      southSeating[i] = new Seat();
-	      southSeating[i].setPrice(10.0);
-	      southSeating[i].setText("");
-	      gridSeats.add(southSeating[i]);
-	    }
-	    return gridSeats;
-	  }
-
-	
+	/**
+	 * @param args
+	 */
 	public static void main (String [] args){
 		new EventConcert().setVisible(true);
 		
