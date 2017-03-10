@@ -2,14 +2,22 @@ import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
-
+/**
+ * @author Group 4
+ * Last Updated: 3/10/2017
+ * MovieEvent: Concert event layout, sections, seats, sets prices
+ *
+ */
 public class MovieEvent extends JFrame {
 
   Seat[] seats = new Seat[50];
   Order newOrder = new Order();
   JPanel order = new JPanel();
   JButton done = new JButton("Checkout");
-
+  /**Constructor
+   * Adds JPannels to borderLayout for the movie seating, set dimensions
+   *Adds order screen, 
+ */
   public MovieEvent() {
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     JPanel screen = new JPanel();
@@ -31,7 +39,9 @@ public class MovieEvent extends JFrame {
     order.add(done);
 
   }
-
+  /**generates seat grid and sets their prices.
+   *  
+ */
   public JComponent getSeats() {
     JPanel gridSeats = new JPanel();
     gridSeats.setSize(250, 400);
