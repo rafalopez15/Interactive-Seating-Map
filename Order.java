@@ -3,6 +3,11 @@ import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+*This class genereates the order for the seats. It counts how many seats the user
+*chooses, applies a discount if conditions are met. And finally, gives the total.
+*/
+
 public class Order extends JLabel {
   
   double total;
@@ -17,6 +22,11 @@ public class Order extends JLabel {
   public Order() {
   }
   
+  /**
+  *Creates the order object to display with the seats. Chceks for discounts, adds up 
+  *the total of seats selected.
+  *@param seats array takes the array of the selected section.
+  */
   public Order(Seat[] s) {
     summary = BorderFactory.createTitledBorder(blackline, "Order");
     setBorder(summary);
@@ -65,27 +75,50 @@ public class Order extends JLabel {
       });
     }
   }
-
+/**
+*Sets total for order
+*@param t is passed to set total
+*/
   public void setTotal(double t) {
     total = t;
   }
 
+/**
+*Sets temp total for order
+*@param tt is passed to set temp total
+*/
   public void setTempTotal(double tt) {
     tempTotal = tt;
   }
 
+/**
+*Sets discount for order
+*@param d is passed to set discount
+*/
   public void setDiscount(double d) {
     discount = d;
   }
 
+/**
+*returns total
+*@return double total of order
+*/
   public double getTotal() {
     return total;
   }
 
+/**
+*returns tempTotal
+*@return double temptotal of order
+*/
   public double getTempTotal() {
     return tempTotal;
   }
 
+/**
+*returns discount
+*@return double discount of order
+*/
   public double getDiscount() {
     return discount;
   }

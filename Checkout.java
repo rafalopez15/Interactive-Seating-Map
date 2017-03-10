@@ -3,6 +3,10 @@ import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+Gets the order information, displays it on a checkout panel when the 
+user finishes selecting seats.
+*/
 public class Checkout extends JFrame {
     JPanel order = new JPanel();
     JLabel words = new JLabel();
@@ -13,6 +17,10 @@ public class Checkout extends JFrame {
     double tempTotal;
     double discount;
 
+/**
+sets all the panel sizes, modifies the labels to display all order infomration
+@param o is all the information for the order.
+*/
     public Checkout(Order o) {
         receipt = BorderFactory.createTitledBorder(blackline, "Receipt");
         order.setBorder(receipt);
