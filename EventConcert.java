@@ -7,7 +7,7 @@ import java.awt.*;
 
 
 public class EventConcert extends JFrame implements ActionListener {
-	JLabel stageLabel = new JLabel("This is a label", SwingConstants.CENTER);
+	JLabel stageLabel = new JLabel("STAGE", SwingConstants.CENTER);
 	JToggleButton north1 = new JToggleButton("North");
 	JToggleButton middle = new JToggleButton("Middle");
 	JToggleButton south = new JToggleButton("South");
