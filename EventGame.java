@@ -43,7 +43,7 @@ public class EventGame extends JFrame implements ActionListener {
 		court.setBorderPainted(false);
 		court.setFocusPainted(false);
 		court.setContentAreaFilled(false);
-		ImageIcon img = new ImageIcon(getClass().getResource("images/bbalCourt.jpg"));
+		ImageIcon img = new ImageIcon(getClass().getResource("/Interactive-Seating-Map/images/bballCourt.jpeg"));
 		court.setIcon(img);
 		court.setDisabledIcon(img);
 		Font font = new Font("MS Gothic", Font.BOLD, 26);
