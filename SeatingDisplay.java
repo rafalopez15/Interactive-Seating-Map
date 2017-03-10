@@ -8,6 +8,9 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	public  Seat [] northSouthSeating = new Seat[10];
 	public  Seat [] upperNorthSouthSeating = new Seat[15];
 	public  Seat [] eastWestSeating = new Seat[20];
+	public  Seat [] concertNSeating = new Seat[20];
+	public  Seat [] concertMSeating = new Seat[30];
+	public  Seat [] concertSSeating = new Seat[40];
 	
 	
 	private  Dimension upperD = new Dimension(1220,260);
@@ -22,6 +25,8 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	public JComponent centralPanel1 = new JPanel();
 	public JComponent centralPanel2 = new JPanel();
 	public JComponent centralPanel3 = new JPanel();
+	public JComponent centralPanel4 = new JPanel();
+	public JComponent centralPanel5 = new JPanel();
 	
 	public SeatingDisplay(int x, int y){
 		
@@ -72,11 +77,35 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 			JFrame checkout = new JFrame();
 		}
 		
-		else if( x == EventConcert.conx && y == EventConcert.cony){
-			centralPanel3 = getConcertNSeating(EventConcert.conx, EventConcert.cony);
+		else if( x == EventConcert.conx && y == EventConcert.conNy){
+			centralPanel3 = getConcertNSeating(EventConcert.conx, EventConcert.conNy);
 			this.setSize(concertD);
-			newOrder = new Order(eastWestSeating);
-			center.add(centralPanel2, BorderLayout.CENTER);
+			newOrder = new Order(concertNSeating);
+			center.add(centralPanel3, BorderLayout.CENTER);
+			center.add(order, BorderLayout.EAST);
+			order.add(newOrder);
+		    done.addActionListener(this);
+		    order.add(done);
+			JFrame checkout = new JFrame();
+		}
+		
+		else if( x == EventConcert.conx && y == EventConcert.conMy){
+			centralPanel3 = getConcertMSeating(EventConcert.conx, EventConcert.conMy);
+			this.setSize(concertD);
+			newOrder = new Order(concertMSeating);
+			center.add(centralPanel3, BorderLayout.CENTER);
+			center.add(order, BorderLayout.EAST);
+			order.add(newOrder);
+		    done.addActionListener(this);
+		    order.add(done);
+			JFrame checkout = new JFrame();
+		}
+		
+		else if( x == EventConcert.conx && y == EventConcert.conSy){
+			centralPanel3 = getConcertSSeating(EventConcert.conx, EventConcert.conSy);
+			this.setSize(concertD);
+			newOrder = new Order(concertSSeating);
+			center.add(centralPanel3, BorderLayout.CENTER);
 			center.add(order, BorderLayout.EAST);
 			order.add(newOrder);
 		    done.addActionListener(this);
@@ -134,12 +163,12 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	public JComponent getConcertNSeating(int x, int y){
 		 JPanel gridSeats = new JPanel();
 		    gridSeats.setLayout(new GridLayout(x, y));
-		    for (int i = 0; i < eastWestSeating.length; i++) {
-		      eastWestSeating[i] = new Seat();
-		      eastWestSeating[i].setPrice(30);
-		      eastWestSeating[i].setText("");
-		      eastWestSeating[i].setText(Integer.toString(((i)+1)));
-		      gridSeats.add(eastWestSeating[i]);
+		    for (int i = 0; i < concertNSeating.length; i++) {
+		     concertNSeating[i] = new Seat();
+		      concertNSeating[i].setPrice(30);
+		      concertNSeating[i].setText("");
+		      concertNSeating[i].setText(Integer.toString(((i)+1)));
+		      gridSeats.add(concertNSeating[i]);
 		    }
 		    return gridSeats;
 	}
@@ -148,12 +177,12 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	public JComponent getConcertMSeating(int x, int y){
 		 JPanel gridSeats = new JPanel();
 		    gridSeats.setLayout(new GridLayout(x, y));
-		    for (int i = 0; i < eastWestSeating.length; i++) {
-		      eastWestSeating[i] = new Seat();
-		      eastWestSeating[i].setPrice(20);
-		      eastWestSeating[i].setText("");
-		      eastWestSeating[i].setText(Integer.toString(((i)+1)));
-		      gridSeats.add(eastWestSeating[i]);
+		    for (int i = 0; i < concertMSeating.length; i++) {
+		     concertMSeating[i] = new Seat();
+		      concertMSeating[i].setPrice(30);
+		      concertMSeating[i].setText("");
+		      concertMSeating[i].setText(Integer.toString(((i)+1)));
+		      gridSeats.add(concertMSeating[i]);
 		    }
 		    return gridSeats;
 	}
@@ -161,12 +190,12 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	public JComponent getConcertSSeating(int x, int y){
 		 JPanel gridSeats = new JPanel();
 		    gridSeats.setLayout(new GridLayout(x, y));
-		    for (int i = 0; i < eastWestSeating.length; i++) {
-		      eastWestSeating[i] = new Seat();
-		      eastWestSeating[i].setPrice(10);
-		      eastWestSeating[i].setText("");
-		      eastWestSeating[i].setText(Integer.toString(((i)+1)));
-		      gridSeats.add(eastWestSeating[i]);
+		    for (int i = 0; i < concertSSeating.length; i++) {
+		     concertSSeating[i] = new Seat();
+		      concertSSeating[i].setPrice(30);
+		      concertSSeating[i].setText("");
+		      concertSSeating[i].setText(Integer.toString(((i)+1)));
+		      gridSeats.add(concertSSeating[i]);
 		    }
 		    return gridSeats;
 	}
