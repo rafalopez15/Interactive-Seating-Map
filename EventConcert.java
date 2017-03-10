@@ -23,10 +23,13 @@ public class EventConcert extends JFrame implements ActionListener {
 	Seat [] northSeating = new Seat[30];
 	
 	
-	public static int conx = 10;
-	public static int conNy = 2;
-	public static int conMy = 3;
-	public static int conSy = 4;
+	public static int conNx = 2;
+	public static int conMx = 3;
+	public static int conSx = 4;
+	
+	public static int conNy = 10;
+	public static int conMy = 10;
+	public static int conSy = 10;
 	
 	
 	
@@ -61,21 +64,21 @@ public class EventConcert extends JFrame implements ActionListener {
 		if(e.getSource() == north){
 			north.setEnabled(true);
 			JFrame seatingDisplayNorth = new JFrame();
-			seatingDisplayNorth = new SeatingDisplay(conx,conNy);
+			seatingDisplayNorth = new SeatingDisplay(conNx,conNy);
 			seatingDisplayNorth.setTitle(" North Section ");
 		}
 		
 		else if(e.getSource() == middle){
 			middle.setEnabled(true);
 			JFrame seatingDisplayMiddle = new JFrame();
-			seatingDisplayMiddle = new SeatingDisplay(conx,conMy);
+			seatingDisplayMiddle = new SeatingDisplay(conMx,conMy);
 			seatingDisplayMiddle.setTitle(" Middle Section ");
 			
 		}
 		else if (e.getSource() == south){
 			south.setEnabled(true);
 			JFrame seatingDisplaySouth = new JFrame();
-			seatingDisplaySouth = new SeatingDisplay(conx,conSy);
+			seatingDisplaySouth = new SeatingDisplay(conSx,conSy);
 			seatingDisplaySouth.setTitle(" South Section ");
 			
 		}
