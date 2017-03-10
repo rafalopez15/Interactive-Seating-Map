@@ -41,7 +41,7 @@ public class Order extends JLabel {
             tempTotal -= check.getPrice();
             setTotal(tempTotal);
           }
-          if (noTickets > 4 && !vipBox.isSelected()) {
+          if (noTickets > 5 && !vipBox.isSelected()) {
             discount = tempTotal * .1;
             total = tempTotal - discount;
             setTotal(total);

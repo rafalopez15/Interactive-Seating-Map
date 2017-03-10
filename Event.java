@@ -15,6 +15,14 @@ public class Event extends JFrame implements ActionListener{
   JFrame concertContent = new EventConcert();
   
   
+  
+  /** 
+	 * This constructor create the interactive interface for selecting an event. 
+	 * The UI consists of two panels, a JLabel, and  grid with 3 buttons, 
+	 * each representing a specific event type.
+	 * 
+	 * 
+	 */
   public Event(){
     
     setTitle("Events");
@@ -54,10 +62,23 @@ public class Event extends JFrame implements ActionListener{
     setLocationRelativeTo(null);
   }
 
+  
+  /** 
+	 * This method sets the text in the status bar 
+	 * @param s This is the status message of the game  
+	 */
+  
   private void setStatus(String s) {
     statusBar.setText(s);
   }
 
+  /** 
+	 * This enables the buttons of the grid 
+	 * 
+	 * @param enabled This is for the UI to determine if a button on the grid
+	 * has been enabled.
+	 */
+  
   public void setGridEnabled(boolean enabled) {
     for (int i = 0; i < 1; i++)
       for (int j = 0; j < 3; j++) {
@@ -70,9 +91,16 @@ public class Event extends JFrame implements ActionListener{
     }
   }
   
+  
+  /** 
+	 * This method opens up new frame with the event type 
+	 * 
+	 * @param i is the row of the event grid
+	 * @param j is the column of the event grid
+	 */
+  
   private void clickOne(int i, int j) {
     if (i == 0 && j == 0) {
-      //add(newContent);
     	newContent.setVisible(true);
     	newContent.setLocationRelativeTo(null);
     	newContent.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -93,6 +121,12 @@ public class Event extends JFrame implements ActionListener{
   }
   
   
+  
+  /** 
+	 * This method starts up the UI by setting the center panel
+	 * to visible and enabling the grid
+	 * 
+	 */
   private void start() {
     setStatus("Select an Event:");
     newContent.setVisible(false);
@@ -101,9 +135,12 @@ public class Event extends JFrame implements ActionListener{
   }
   
   
+  /** 
+	 * This method processes the action events of clicking an event button from grid.
+	 * 
+	 * @param event This is the action of clicking on one of the buttons
+	 */
   public void actionPerformed(ActionEvent event) {
-    // checks to see if play button was pressed
-    //checks to see if reset button was pressed
 
     if (event.getSource() == backButton) {
       start();
@@ -120,8 +157,6 @@ public class Event extends JFrame implements ActionListener{
         }
       }
     }
-    
-    
   }
   
   public static void main (String [] args){

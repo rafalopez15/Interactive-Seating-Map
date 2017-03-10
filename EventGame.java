@@ -2,15 +2,28 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
+/** 
+* This class implements the UI for selecting a seat section for both 
+* game and concert event type.
+* 
+* 
+*
+* @author  Amin Karabash
+* @version 1.0
+* @since   2017-03-10 
+*  
+*/
 
 
 
 public class EventGame extends JFrame implements ActionListener {
 	
+	
+	
 	private JButton court = new JButton ();
 	private JPanel centerPanel = new JPanel();
 	
-	
+	// different buttons for the different seating sections 
 	JToggleButton north1 = new JToggleButton("North");
 	JToggleButton north2 = new JToggleButton("Upper North");
 	JToggleButton south1 = new JToggleButton("South");
@@ -19,6 +32,7 @@ public class EventGame extends JFrame implements ActionListener {
 	JToggleButton east = new JToggleButton("East");
 	
 	
+	// dimensions for seating layout depending on section selection
 	public static int nsx = 1;
 	public static int y1 = 10;
 	public static int y2 = 15;
@@ -26,6 +40,14 @@ public class EventGame extends JFrame implements ActionListener {
 	public static int ewy = 4;
 	
 
+	
+	/** 
+	 * This constructor create the interactive interface of the Game event. 
+	 * The UI consists of 7 panels with 6 active buttons, each representing a section, and 
+	 * a center button that is disabled with image of basketball court. 
+	 * 
+	 * 
+	 */
 	
 	public EventGame() {
 		
@@ -46,12 +68,15 @@ public class EventGame extends JFrame implements ActionListener {
 		court.setFont(font);
 		court.setEnabled(false);
 
+		
+		//inner border layout 
 		centerPanel.setLayout(new BorderLayout());
 		centerPanel.add(north1, BorderLayout.NORTH);
 		centerPanel.add(court, BorderLayout.CENTER);
 		centerPanel.add(south1, BorderLayout.SOUTH);
 		
 		
+		//outer border layout
 		setLayout(new BorderLayout());
 		add(north2, BorderLayout.NORTH);
 		add(east, BorderLayout.EAST);
@@ -60,6 +85,7 @@ public class EventGame extends JFrame implements ActionListener {
 		add(south2, BorderLayout.SOUTH);
 	
 
+		// actionListeners for buttons  
 		north1.addActionListener(this);
 		north2.addActionListener(this);
 		south1.addActionListener(this);
@@ -69,8 +95,15 @@ public class EventGame extends JFrame implements ActionListener {
 		
 	}
 	
+	/** 
+	 * This method processes the action events of clicking a section button.
+	 * 
+	 * @param event This is the action of clicking on one of the buttons
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
+		// depending on which button is pressed,
+		// open up new window with seating display
 		if(e.getSource() == north2 ){
 			JFrame seatingDisplayUNorth = new SeatingDisplay(nsx,y2);
 			seatingDisplayUNorth.setTitle(" Nosebleeds (NORTH) ");

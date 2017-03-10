@@ -3,16 +3,32 @@ import java.awt.event.*;
 import java.awt.*;
 
 
+/** 
+* This class implements the UI for selecting sectioned seats for both 
+* game and concert event type.
+* 
+* 
+*
+* @author  Amin Karabash
+* @version 1.0
+* @since   2017-03-10 
+*  
+*/
+
 public class SeatingDisplay extends JFrame implements ActionListener  {
 
+	// seating arrays for Game event
 	public  Seat [] northSouthSeating = new Seat[10];
 	public  Seat [] upperNorthSouthSeating = new Seat[15];
 	public  Seat [] eastWestSeating = new Seat[20];
+	
+	// seating arrays for concert event
 	public  Seat [] concertNSeating = new Seat[20];
 	public  Seat [] concertMSeating = new Seat[30];
 	public  Seat [] concertSSeating = new Seat[40];
 	
 	
+	// sizes for seating display frame based on event type
 	private  Dimension upperD = new Dimension(1220,260);
 	private  Dimension northSouthD = new Dimension(900,260);
 	private  Dimension eastWestD = new Dimension(500,700);
@@ -21,12 +37,28 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	JButton done = new JButton("Checkout");
 	public Order newOrder = new Order();
 	
+	// panels that will hold seating gird of seating display for game event 
 	public JComponent centralPanel = new JPanel();
 	public JComponent centralPanel1 = new JPanel();
 	public JComponent centralPanel2 = new JPanel();
+	
+	
+	// panels that will hold seating gird of seating display for concert event
 	public JComponent centralPanel3 = new JPanel();
 	public JComponent centralPanel4 = new JPanel();
 	public JComponent centralPanel5 = new JPanel();
+	
+	
+	/** 
+	 * This constructor create the interactive interface of the seating display. 
+	 * The UI consists of 3 panels: 
+	 * 1) A panel that contains the seating grid; 
+	 * 2) a panel that contains the order tracker, as represented by a 3x3 grid;
+	 * 3) A button to proceed to checkout window 
+	 *  
+	 *  @param x is row dimension of the seating grid
+	 *  @param y is column dimension of the seating grid
+	 */
 	
 	public SeatingDisplay(int x, int y){
 		
@@ -43,6 +75,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		JPanel order = new JPanel();
 		center.add(order, BorderLayout.EAST);
 	    
+		// based on dimensions, create seating display 
 		if(x == EventGame.nsx && y == EventGame.y2){
 			centralPanel = getUpperNSSeating(EventGame.nsx,EventGame.y2);
 			this.setSize(upperD);
@@ -77,8 +110,8 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 			JFrame checkout = new JFrame();
 		}
 		
-		else if( x == EventConcert.conx && y == EventConcert.conNy){
-			centralPanel3 = getConcertNSeating(EventConcert.conx, EventConcert.conNy);
+		else if( x == EventConcert.conNx && y == EventConcert.conNy){
+			centralPanel3 = getConcertNSeating(EventConcert.conNx, EventConcert.conNy);
 			this.setSize(concertD);
 			newOrder = new Order(concertNSeating);
 			center.add(centralPanel3, BorderLayout.CENTER);
@@ -89,8 +122,8 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 			JFrame checkout = new JFrame();
 		}
 		
-		else if( x == EventConcert.conx && y == EventConcert.conMy){
-			centralPanel3 = getConcertMSeating(EventConcert.conx, EventConcert.conMy);
+		else if( x == EventConcert.conMx && y == EventConcert.conMy){
+			centralPanel3 = getConcertMSeating(EventConcert.conMx, EventConcert.conMy);
 			this.setSize(concertD);
 			newOrder = new Order(concertMSeating);
 			center.add(centralPanel3, BorderLayout.CENTER);
@@ -101,8 +134,8 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 			JFrame checkout = new JFrame();
 		}
 		
-		else if( x == EventConcert.conx && y == EventConcert.conSy){
-			centralPanel3 = getConcertSSeating(EventConcert.conx, EventConcert.conSy);
+		else if( x == EventConcert.conSx && y == EventConcert.conSy){
+			centralPanel3 = getConcertSSeating(EventConcert.conSx, EventConcert.conSy);
 			this.setSize(concertD);
 			newOrder = new Order(concertSSeating);
 			center.add(centralPanel3, BorderLayout.CENTER);
@@ -114,10 +147,16 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		}
 		
 		setVisible(true);
-		//setLocation(null);
 	}
 	
 	
+	/** 
+	 * This method creates the seating grid panel that will go 
+	 * into the center panel.
+	 * 
+	 *  @param x is row dimension of the seating grid
+	 *  @param y is column dimension of the seating grid
+	 */
 	public JComponent getUpperNSSeating( int x, int y) {
 	    JPanel gridSeats = new JPanel();
 	    gridSeats.setLayout(new GridLayout(x, y));
@@ -131,6 +170,13 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	    return gridSeats;
 	 }
 	
+	/** 
+	 * This method creates the seating grid panel that will go 
+	 * into the center panel.
+	 * 
+	 *  @param x is row dimension of the seating grid
+	 *  @param y is column dimension of the seating grid
+	 */
 	
 	public JComponent getNSSeating( int x, int y) {
 	    JPanel gridSeats = new JPanel();
@@ -145,6 +191,13 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	    return gridSeats;
 	  }
 	
+	/** 
+	 * This method creates the seating grid panel that will go 
+	 * into the center panel.
+	 * 
+	 *  @param x is row dimension of the seating grid
+	 *  @param y is column dimension of the seating grid
+	 */
 	
 	public JComponent getEWSeating( int x, int y) {
 	    JPanel gridSeats = new JPanel();
@@ -160,6 +213,13 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	  }
 	
 	
+	/** 
+	 * This method creates the seating grid panel that will go 
+	 * into the center panel.
+	 * 
+	 *  @param x is row dimension of the seating grid
+	 *  @param y is column dimension of the seating grid
+	 */
 	public JComponent getConcertNSeating(int x, int y){
 		 JPanel gridSeats = new JPanel();
 		    gridSeats.setLayout(new GridLayout(x, y));
@@ -173,6 +233,13 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		    return gridSeats;
 	}
 	
+	/** 
+	 * This method creates the seating grid panel that will go 
+	 * into the center panel.
+	 * 
+	 *  @param x is row dimension of the seating grid
+	 *  @param y is column dimension of the seating grid
+	 */
 	
 	public JComponent getConcertMSeating(int x, int y){
 		 JPanel gridSeats = new JPanel();
@@ -187,6 +254,13 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		    return gridSeats;
 	}
 	
+	/** 
+	 * This method creates the seating grid panel that will go 
+	 * into the center panel.
+	 * 
+	 *  @param x is row dimension of the seating grid
+	 *  @param y is column dimension of the seating grid
+	 */
 	public JComponent getConcertSSeating(int x, int y){
 		 JPanel gridSeats = new JPanel();
 		    gridSeats.setLayout(new GridLayout(x, y));
@@ -200,6 +274,12 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		    return gridSeats;
 	}
 	
+	/** 
+	 * This method creates the seating grid panel that will go 
+	 * into the center panel.
+	 * 
+	 *  @param e is an action event to of clicking one of the buttons
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == done) {
@@ -209,10 +289,6 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	}
 	
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 	
 	
