@@ -12,6 +12,7 @@ public class Event extends JFrame implements ActionListener{
   JPanel centerPanel = new JPanel(new GridLayout(1, 3));
   JFrame newContent = new MovieEvent();
   JFrame gameContent = new EventGame();
+  JFrame concertContent = new EventConcert();
   
   
   public Event(){
@@ -72,13 +73,21 @@ public class Event extends JFrame implements ActionListener{
   private void clickOne(int i, int j) {
     if (i == 0 && j == 0) {
       //add(newContent);
-      newContent.setVisible(true);
-      newContent.setLocationRelativeTo(null);
+    	newContent.setVisible(true);
+    	newContent.setLocationRelativeTo(null);
+    	newContent.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
     else if ( i == 0 && j == 1){
-     gameContent.setVisible(true);
-     gameContent.setLocationRelativeTo(this);
+    	gameContent.setVisible(true);
+    	gameContent.setLocationRelativeTo(this);
+    	gameContent.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+    
+    else if (i == 0 && j == 2){
+    	concertContent.setVisible(true);
+    	concertContent.setLocationRelativeTo(this);
+    	concertContent.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
   }
