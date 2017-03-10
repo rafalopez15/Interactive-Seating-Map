@@ -7,12 +7,8 @@ import java.awt.*;
 
 public class EventGame extends JFrame implements ActionListener {
 	
-	
-	private String statusBar = " Please Select Section ";
-	private JButton court = new JButton (statusBar);
-	
-	
-	JPanel centerPanel = new JPanel();
+	private JButton court = new JButton ();
+	private JPanel centerPanel = new JPanel();
 	
 	
 	JToggleButton north1 = new JToggleButton("North");
@@ -38,12 +34,12 @@ public class EventGame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		
-		setSize(650,300);
+		setSize(670,350);
 
 		court.setBorderPainted(false);
 		court.setFocusPainted(false);
 		court.setContentAreaFilled(false);
-		ImageIcon img = new ImageIcon(getClass().getResource("/Interactive-Seating-Map/images/bballCourt.jpeg"));
+		ImageIcon img = new ImageIcon(getClass().getResource("images/bballCourt.jpeg"));
 		court.setIcon(img);
 		court.setDisabledIcon(img);
 		Font font = new Font("MS Gothic", Font.BOLD, 26);
@@ -77,26 +73,32 @@ public class EventGame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == north2 ){
 			JFrame seatingDisplayUNorth = new SeatingDisplay(nsx,y2);
+			seatingDisplayUNorth.setTitle(" Nosebleeds (NORTH) ");
 		}
 		else if (e.getSource() == south2){
 			south2.setEnabled(true);
-			JFrame seatingDisplayUSorth = new SeatingDisplay(nsx,y2);
+			JFrame seatingDisplayUSouth = new SeatingDisplay(nsx,y2);
+			seatingDisplayUSouth.setTitle(" Nosebleeds (SOUTH) ");
 		}
 		else if(e.getSource() == north1){
 			north1.setEnabled(true);
 			JFrame seatingDisplayNorth = new SeatingDisplay(nsx, y1);
+			seatingDisplayNorth.setTitle(" Court Side (NORTH) ");
 		}
 		else if (e.getSource() == south1){
 			south1.setEnabled(true);
 			JFrame seatingDisplaySouth = new SeatingDisplay(nsx, y1);
+			seatingDisplaySouth.setTitle(" Court Side (SOUTH) ");
 		}
 		else if( e.getSource() == east){
 			east.setEnabled(true);
 			JFrame seatingDisplayEast = new SeatingDisplay(ewx, ewy);
+			seatingDisplayEast.setTitle(" Behind the Basket (EAST) ");
 		}
 		else if( e.getSource() == west){
 			west.setEnabled(true);
 			JFrame seatingDisplayWest = new SeatingDisplay(ewx,ewy);
+			seatingDisplayWest.setTitle(" Behind the Basket (WEST) ");
 		}
 	}
 	

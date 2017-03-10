@@ -17,8 +17,8 @@ public class EventConcert extends JFrame implements ActionListener {
 	Seat [] northSeating = new Seat[30];
 	
 	
-	public static int ewx = 10;
-	public static int ewy = 3;
+	public static int conx = 5;
+	public static int cony = 4;
 	
 	
 	public EventConcert(){
@@ -44,36 +44,23 @@ public class EventConcert extends JFrame implements ActionListener {
 		if(e.getSource() == north1){
 			north1.setEnabled(true);
 			JFrame seatingDisplayNorth = new JFrame();
-			seatingDisplayNorth = new SeatingDisplay(ewx,ewy);
-			seatingDisplayNorth.setLayout(new BorderLayout());
-			JPanel orderUNorth = new JPanel();
-			seatingDisplayNorth.add(getNSeating(ewx,ewy), BorderLayout.CENTER);
-			seatingDisplayNorth.add(orderUNorth, BorderLayout.EAST);
-			orderUNorth.setLayout(new BorderLayout());
-		    orderUNorth.add(new Order(northSeating), BorderLayout.NORTH);	
+			seatingDisplayNorth = new SeatingDisplay(conx,cony);
+			seatingDisplayNorth.setTitle(" North Section ");
 		}
 		
 		else if(e.getSource() == middle){
 			middle.setEnabled(true);
 			JFrame seatingDisplayMiddle = new JFrame();
-			seatingDisplayMiddle = new SeatingDisplay(ewx,ewy);
-			seatingDisplayMiddle.setLayout(new BorderLayout());
-			JPanel orderMiddle = new JPanel();
-			seatingDisplayMiddle.add(getNSeating(ewx,ewy), BorderLayout.CENTER);
-			seatingDisplayMiddle.add(orderMiddle, BorderLayout.EAST);
-			orderMiddle.setLayout(new BorderLayout());
-		    orderMiddle.add(new Order(northSeating), BorderLayout.NORTH);
+			seatingDisplayMiddle = new SeatingDisplay(conx,cony);
+			seatingDisplayMiddle.setTitle(" Middle Section ");
+			
 		}
 		else if (e.getSource() == south){
 			south.setEnabled(true);
 			JFrame seatingDisplaySouth = new JFrame();
-			seatingDisplaySouth = new SeatingDisplay(ewx,ewy);
-			seatingDisplaySouth.setLayout(new BorderLayout());
-			JPanel orderSouth = new JPanel();
-			seatingDisplaySouth.add(getNSeating(ewx,ewy), BorderLayout.CENTER);
-			seatingDisplaySouth.add(orderSouth, BorderLayout.EAST);
-			orderSouth.setLayout(new BorderLayout());
-		    orderSouth.add(new Order(northSeating), BorderLayout.NORTH);
+			seatingDisplaySouth = new SeatingDisplay(conx,cony);
+			seatingDisplaySouth.setTitle(" South Section ");
+			
 		}
 		
 	}

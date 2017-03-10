@@ -13,7 +13,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	private  Dimension upperD = new Dimension(1220,260);
 	private  Dimension northSouthD = new Dimension(900,260);
 	private  Dimension eastWestD = new Dimension(500,700);
-	
+	private  Dimension concertD = new Dimension(800,500);
 	
 	JButton done = new JButton("Checkout");
 	public Order newOrder = new Order();
@@ -21,7 +21,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	public JComponent centralPanel = new JPanel();
 	public JComponent centralPanel1 = new JPanel();
 	public JComponent centralPanel2 = new JPanel();
-	
+	public JComponent centralPanel3 = new JPanel();
 	
 	public SeatingDisplay(int x, int y){
 		
@@ -39,8 +39,6 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		center.add(order, BorderLayout.EAST);
 	    
 		if(x == EventGame.nsx && y == EventGame.y2){
-			setTitle("Nosebleeds");
-			//add(new JButton("Court"), BorderLayout.SOUTH);
 			centralPanel = getUpperNSSeating(EventGame.nsx,EventGame.y2);
 			this.setSize(upperD);
 			newOrder = new Order(upperNorthSouthSeating);
@@ -52,8 +50,6 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 			JFrame checkout = new JFrame();
 		}
 		if(x == EventGame.nsx && y == EventGame.y1){
-			setTitle("Behind The Basket");
-			//add(new JButton("Court"), BorderLayout.NORTH);
 			centralPanel1 = getNSSeating(EventGame.nsx,EventGame.y1);
 			this.setSize(northSouthD);
 			newOrder = new Order(northSouthSeating);
@@ -65,7 +61,6 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 			JFrame checkout = new JFrame();
 		}
 		else if(x == EventGame.ewx && y == EventGame.ewy){
-			setTitle("Court Side");
 			centralPanel2 = getEWSeating(EventGame.ewx,EventGame.ewy);
 			this.setSize(eastWestD);
 			newOrder = new Order(eastWestSeating);
@@ -77,8 +72,20 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 			JFrame checkout = new JFrame();
 		}
 		
+		else if( x == EventConcert.conx && y == EventConcert.cony){
+			centralPanel3 = getConcertNSeating(EventConcert.conx, EventConcert.cony);
+			this.setSize(concertD);
+			newOrder = new Order(eastWestSeating);
+			center.add(centralPanel2, BorderLayout.CENTER);
+			center.add(order, BorderLayout.EAST);
+			order.add(newOrder);
+		    done.addActionListener(this);
+		    order.add(done);
+			JFrame checkout = new JFrame();
+		}
+		
 		setVisible(true);
-		setLayout(null);
+		//setLocation(null);
 	}
 	
 	
@@ -123,6 +130,46 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	    return gridSeats;
 	  }
 	
+	
+	public JComponent getConcertNSeating(int x, int y){
+		 JPanel gridSeats = new JPanel();
+		    gridSeats.setLayout(new GridLayout(x, y));
+		    for (int i = 0; i < eastWestSeating.length; i++) {
+		      eastWestSeating[i] = new Seat();
+		      eastWestSeating[i].setPrice(30);
+		      eastWestSeating[i].setText("");
+		      eastWestSeating[i].setText(Integer.toString(((i)+1)));
+		      gridSeats.add(eastWestSeating[i]);
+		    }
+		    return gridSeats;
+	}
+	
+	
+	public JComponent getConcertMSeating(int x, int y){
+		 JPanel gridSeats = new JPanel();
+		    gridSeats.setLayout(new GridLayout(x, y));
+		    for (int i = 0; i < eastWestSeating.length; i++) {
+		      eastWestSeating[i] = new Seat();
+		      eastWestSeating[i].setPrice(20);
+		      eastWestSeating[i].setText("");
+		      eastWestSeating[i].setText(Integer.toString(((i)+1)));
+		      gridSeats.add(eastWestSeating[i]);
+		    }
+		    return gridSeats;
+	}
+	
+	public JComponent getConcertSSeating(int x, int y){
+		 JPanel gridSeats = new JPanel();
+		    gridSeats.setLayout(new GridLayout(x, y));
+		    for (int i = 0; i < eastWestSeating.length; i++) {
+		      eastWestSeating[i] = new Seat();
+		      eastWestSeating[i].setPrice(10);
+		      eastWestSeating[i].setText("");
+		      eastWestSeating[i].setText(Integer.toString(((i)+1)));
+		      gridSeats.add(eastWestSeating[i]);
+		    }
+		    return gridSeats;
+	}
 	
 	
 	public void actionPerformed(ActionEvent e) {
