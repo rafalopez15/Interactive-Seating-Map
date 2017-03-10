@@ -24,10 +24,10 @@ public class EventGame extends JFrame implements ActionListener {
 	
 	
 	public static int nsx = 1;
-	public static int y1 = 5;
+	public static int y1 = 10;
 	public static int y2 = 15;
-	public static int ewx = 10;
-	public static int ewy = 3;
+	public static int ewx = 5;
+	public static int ewy = 4;
 	
 
 	
@@ -38,13 +38,14 @@ public class EventGame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		
-		setSize(550,300);
+		setSize(650,300);
 
 		court.setBorderPainted(false);
 		court.setFocusPainted(false);
 		court.setContentAreaFilled(false);
-		court.setIcon(new ImageIcon(getClass().getResource("images/bball.png")));
-		court.setDisabledIcon(new ImageIcon(getClass().getResource("images/bball.png")));
+		ImageIcon img = new ImageIcon(getClass().getResource("images/bbalCourt.jpg"));
+		court.setIcon(img);
+		court.setDisabledIcon(img);
 		Font font = new Font("MS Gothic", Font.BOLD, 26);
 		court.setFont(font);
 		court.setEnabled(false);
@@ -54,7 +55,6 @@ public class EventGame extends JFrame implements ActionListener {
 		centerPanel.add(court, BorderLayout.CENTER);
 		centerPanel.add(south1, BorderLayout.SOUTH);
 		
-	
 		
 		setLayout(new BorderLayout());
 		add(north2, BorderLayout.NORTH);
@@ -77,7 +77,6 @@ public class EventGame extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == north2 ){
 			JFrame seatingDisplayUNorth = new SeatingDisplay(nsx,y2);
-		    north2.setEnabled(true);
 		}
 		else if (e.getSource() == south2){
 			south2.setEnabled(true);
@@ -89,7 +88,7 @@ public class EventGame extends JFrame implements ActionListener {
 		}
 		else if (e.getSource() == south1){
 			south1.setEnabled(true);
-			JFrame seatingDisplaySouth = new SeatingDisplay(nsx, y1);		
+			JFrame seatingDisplaySouth = new SeatingDisplay(nsx, y1);
 		}
 		else if( e.getSource() == east){
 			east.setEnabled(true);
