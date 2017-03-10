@@ -179,7 +179,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		    gridSeats.setLayout(new GridLayout(x, y));
 		    for (int i = 0; i < concertMSeating.length; i++) {
 		     concertMSeating[i] = new Seat();
-		      concertMSeating[i].setPrice(30);
+		      concertMSeating[i].setPrice(20);
 		      concertMSeating[i].setText("");
 		      concertMSeating[i].setText(Integer.toString(((i)+1)));
 		      gridSeats.add(concertMSeating[i]);
@@ -192,7 +192,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 		    gridSeats.setLayout(new GridLayout(x, y));
 		    for (int i = 0; i < concertSSeating.length; i++) {
 		     concertSSeating[i] = new Seat();
-		      concertSSeating[i].setPrice(30);
+		      concertSSeating[i].setPrice(10);
 		      concertSSeating[i].setText("");
 		      concertSSeating[i].setText(Integer.toString(((i)+1)));
 		      gridSeats.add(concertSSeating[i]);
