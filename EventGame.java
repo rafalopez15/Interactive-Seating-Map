@@ -52,7 +52,7 @@ public class EventGame extends JFrame implements ActionListener {
 		
 		
 		setTitle("Game Event Seating");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		
 		setSize(550,300);
@@ -97,6 +97,7 @@ public class EventGame extends JFrame implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == north2 ){
+			
 			JFrame seatingDisplayUNorth = new JFrame();
 			seatingDisplayUNorth = new SeatingDisplay(nsx,y2);
 			seatingDisplayUNorth.setLayout(new BorderLayout());
@@ -105,10 +106,12 @@ public class EventGame extends JFrame implements ActionListener {
 			seatingDisplayUNorth.add(orderUNorth, BorderLayout.EAST);
 			orderUNorth.setLayout(new BorderLayout());
 		    orderUNorth.add(new Order(upperNorthSeating), BorderLayout.NORTH);	
-		    //seatingDisplayUNorth.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		    //seatingDisplayUNorth.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		    north2.setEnabled(true);
 			
 		}
 		else if (e.getSource() == south2){
+			south2.setEnabled(true);
 			JFrame seatingDisplayUSouth = new JFrame();
 			JPanel orderUSouth = new JPanel();
 			seatingDisplayUSouth = new SeatingDisplay(nsx,y2);
@@ -117,10 +120,10 @@ public class EventGame extends JFrame implements ActionListener {
 			seatingDisplayUSouth.add(orderUSouth, BorderLayout.EAST);
 			orderUSouth.setLayout(new BorderLayout());
 		    orderUSouth.add(new Order(upperSouthSeating), BorderLayout.NORTH);	
-		    
 		}
 		
 		else if(e.getSource() == north1){
+			north1.setEnabled(true);
 			JFrame seatingDisplayNorth = new JFrame();
 			JPanel orderNorth = new JPanel();
 			seatingDisplayNorth = new SeatingDisplay(nsx, y1);
@@ -132,6 +135,7 @@ public class EventGame extends JFrame implements ActionListener {
 		}
 		
 		else if (e.getSource() == south1){
+			south1.setEnabled(true);
 			JFrame seatingDisplaySouth = new JFrame();
 			JPanel orderSouth = new JPanel();
 			seatingDisplaySouth = new SeatingDisplay(nsx, y1);
@@ -142,8 +146,8 @@ public class EventGame extends JFrame implements ActionListener {
 		    orderSouth.add(new Order(southSeating), BorderLayout.NORTH);			
 		}
 		
-		
 		else if( e.getSource() == east){
+			east.setEnabled(true);
 			JFrame seatingDisplayEast = new JFrame();
 			JPanel orderEast = new JPanel();
 			seatingDisplayEast = new SeatingDisplay(ewx, ewy);
@@ -165,6 +169,7 @@ public class EventGame extends JFrame implements ActionListener {
 			orderWest.setLayout(new BorderLayout());
 			Order wSeating = new Order(westSeating);
 		    orderWest.add(wSeating, BorderLayout.NORTH);
+		    west.setEnabled(true);
 		}
 	}
 	
