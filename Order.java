@@ -34,10 +34,12 @@ public class Order extends JLabel {
           if (check.isSelected()) {
             noTickets++;
             tempTotal += check.getPrice();
+            setTotal(tempTotal);
           }
           else if (!check.isSelected()) {
             noTickets--;
             tempTotal -= check.getPrice();
+            setTotal(tempTotal);
           }
           if (noTickets > 4 && !vipBox.isSelected()) {
             discount = tempTotal * .1;
@@ -87,4 +89,5 @@ public class Order extends JLabel {
   public double getDiscount() {
     return discount;
   }
+
 }

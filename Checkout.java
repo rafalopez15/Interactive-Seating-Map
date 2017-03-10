@@ -5,20 +5,30 @@ import java.awt.event.*;
 
 public class Checkout extends JFrame {
     JPanel order = new JPanel();
-    JLabel display = new JLabel();
+    JLabel words = new JLabel();
+    JLabel numbers = new JLabel();
+    Border blackline = BorderFactory.createLineBorder(Color.black);
+    TitledBorder receipt;
     double total;
     double tempTotal;
     double discount;
 
     public Checkout(Order o) {
-        setSize(500, 500);
+        receipt = BorderFactory.createTitledBorder(blackline, "Receipt");
+        order.setBorder(receipt);
+        setLayout(new FlowLayout());
+        setMinimumSize(new Dimension(200, 100));
         total = o.getTotal();
         tempTotal = o.getTempTotal();
         discount = o.getDiscount();
-        display.setText("<html>" + tempTotal + "<br>" + discount + "<br>" + total + "</html>");
-        order.add(display);
+        words.setText("<html><div style='text-align: right;'>SUB TOTAL:<br>DISCOUNT:<br>----------<br>TOTAL:</div></html>");
+        numbers.setText("<html><div style='text-align: center;'>" + tempTotal + "<br>&nbsp;" + discount + "<br>----------<br>" + total + "</div></html>");
+        order.add(words);
+        order.add(numbers);
         add(order);
         setVisible(true);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setResizable(false);
+        pack();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }

@@ -8,10 +8,7 @@ public class MovieEvent extends JFrame {
   Seat[] seats = new Seat[50];
   Order newOrder = new Order();
   JPanel order = new JPanel();
-  JLabel orderTotal = new JLabel();
   JButton done = new JButton("Checkout");
-  double total = 0.0;
-  Dimension size = new Dimension(550, 600);
 
   public MovieEvent() {
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -51,6 +48,9 @@ public class MovieEvent extends JFrame {
   public void ActionListener(ActionEvent e) {
     if (e.getSource() == done) {
       Checkout test = new Checkout(newOrder);
+      newOrder = new Order();
+      order.add(newOrder);
+      dispose();
       test.setVisible(true);
     }
 

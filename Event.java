@@ -94,7 +94,7 @@ public class Event extends JFrame implements ActionListener{
   
   
   private void start() {
-    setStatus("Events");
+    setStatus("Select an Event:");
     newContent.setVisible(false);
     centerPanel.setVisible(true);
     setGridEnabled(true);
