@@ -21,18 +21,19 @@ public class EventConcert extends JFrame implements ActionListener {
 	private JToggleButton north = new JToggleButton("North");
 	private JToggleButton middle = new JToggleButton("Middle");
 	private JToggleButton south = new JToggleButton("South");
-	//JFrame seatingDisplay = new JFrame();
+	
 	
 	
 	private Seat [] middleSeating = new Seat[30];
 	private Seat [] southSeating = new Seat[30];
 	private Seat [] northSeating = new Seat[30];
 	
-	
+	// row dimensions 
 	public static int conNx = 2;
 	public static int conMx = 3;
 	public static int conSx = 4;
 	
+	// column dimensions
 	public static int conNy = 10;
 	public static int conMy = 10;
 	public static int conSy = 10;
