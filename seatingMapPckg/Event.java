@@ -20,10 +20,10 @@ public class Event extends JFrame implements ActionListener{
 
   private JButton[][] grid = new JButton[1][3];
   private JLabel statusBar = new JLabel("");
-  JPanel centerPanel = new JPanel(new GridLayout(1, 3));
-  JFrame newContent = new MovieEvent();
-  JFrame gameContent = new EventGame();
-  JFrame concertContent = new EventConcert();
+  private JPanel centerPanel = new JPanel(new GridLayout(1, 3));
+  private JFrame newContent = new MovieEvent();
+  private JFrame gameContent = new EventGame();
+  private JFrame concertContent = new EventConcert();
   
   
   

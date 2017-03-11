@@ -25,12 +25,12 @@ public class EventGame extends JFrame implements ActionListener {
 	private JPanel centerPanel = new JPanel();
 	
 	// different buttons for the different seating sections 
-	JToggleButton north1 = new JToggleButton("North");
-	JToggleButton north2 = new JToggleButton("Upper North");
-	JToggleButton south1 = new JToggleButton("South");
-	JToggleButton south2 = new JToggleButton("Upper South");
-	JToggleButton west = new JToggleButton("West");
-	JToggleButton east = new JToggleButton("East");
+	private JToggleButton north1 = new JToggleButton("North");
+	private JToggleButton north2 = new JToggleButton("Upper North");
+	private JToggleButton south1 = new JToggleButton("South");
+	private JToggleButton south2 = new JToggleButton("Upper South");
+	private JToggleButton west = new JToggleButton("West");
+	private JToggleButton east = new JToggleButton("East");
 	
 	
 	// dimensions for seating layout depending on section selection

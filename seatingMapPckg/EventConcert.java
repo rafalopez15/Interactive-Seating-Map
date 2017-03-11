@@ -17,16 +17,16 @@ import java.awt.*;
  *
  */
 public class EventConcert extends JFrame implements ActionListener {
-	JLabel stageLabel = new JLabel(new ImageIcon(getClass().getResource("images/stage.png")));
-	JToggleButton north = new JToggleButton("North");
-	JToggleButton middle = new JToggleButton("Middle");
-	JToggleButton south = new JToggleButton("South");
+	private JLabel stageLabel = new JLabel(new ImageIcon(getClass().getResource("images/stage.png")));
+	private JToggleButton north = new JToggleButton("North");
+	private JToggleButton middle = new JToggleButton("Middle");
+	private JToggleButton south = new JToggleButton("South");
 	//JFrame seatingDisplay = new JFrame();
 	
 	
-	Seat [] middleSeating = new Seat[30];
-	Seat [] southSeating = new Seat[30];
-	Seat [] northSeating = new Seat[30];
+	private Seat [] middleSeating = new Seat[30];
+	private Seat [] southSeating = new Seat[30];
+	private Seat [] northSeating = new Seat[30];
 	
 	
 	public static int conNx = 2;
