@@ -9,9 +9,8 @@ import java.awt.*;
 * This class implements the UI for selecting sectioned seats for both 
 * game and concert event type.
 * 
-* 
 *
-* @author  Group 4
+* @author  Group 4; Amin Karabash, Andrew Duron, Alejandra Licon, Rafael Lopez
 * @version 1.0
 * @since   2017-03-10 
 *  
@@ -158,6 +157,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	 * 
 	 *  @param x is row dimension of the seating grid
 	 *  @param y is column dimension of the seating grid
+	 *  @return gridSeats Is the grid containing the seats
 	 */
 	public JComponent getUpperNSSeating( int x, int y) {
 	    JPanel gridSeats = new JPanel();
@@ -178,6 +178,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	 * 
 	 *  @param x is row dimension of the seating grid
 	 *  @param y is column dimension of the seating grid
+	 *  @return gridSeats Is the grid containing the seats
 	 */
 	
 	public JComponent getNSSeating( int x, int y) {
@@ -199,6 +200,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	 * 
 	 *  @param x is row dimension of the seating grid
 	 *  @param y is column dimension of the seating grid
+	 *  @return gridSeats Is the grid containing the seats
 	 */
 	
 	public JComponent getEWSeating( int x, int y) {
@@ -221,6 +223,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	 * 
 	 *  @param x is row dimension of the seating grid
 	 *  @param y is column dimension of the seating grid
+	 *  @return gridSeats Is the grid containing the seats
 	 */
 	public JComponent getConcertNSeating(int x, int y){
 		 JPanel gridSeats = new JPanel();
@@ -241,6 +244,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	 * 
 	 *  @param x is row dimension of the seating grid
 	 *  @param y is column dimension of the seating grid
+	 *  @return gridSeats Is the grid containing the seats
 	 */
 	
 	public JComponent getConcertMSeating(int x, int y){
@@ -262,6 +266,7 @@ public class SeatingDisplay extends JFrame implements ActionListener  {
 	 * 
 	 *  @param x is row dimension of the seating grid
 	 *  @param y is column dimension of the seating grid
+	 *  @return gridSeats Is the grid containing the seats
 	 */
 	public JComponent getConcertSSeating(int x, int y){
 		 JPanel gridSeats = new JPanel();

@@ -9,8 +9,7 @@ import java.awt.*;
 * game and concert event type.
 * 
 * 
-*
-* @author  Group 4
+* @author  Group 4; Amin Karabash, Andrew Duron, Alejandra Licon, Rafael Lopez
 * @version 1.0
 * @since   2017-03-10 
 *  
@@ -63,7 +62,7 @@ public class EventGame extends JFrame implements ActionListener {
 		court.setBorderPainted(false);
 		court.setFocusPainted(false);
 		court.setContentAreaFilled(false);
-		ImageIcon img = new ImageIcon(getClass().getResource("/Interactive-Seating-Map/images/bballCourt.jpeg"));
+		ImageIcon img = new ImageIcon(getClass().getResource("images/bballCourt.jpeg"));
 		court.setIcon(img);
 		court.setDisabledIcon(img);
 		Font font = new Font("MS Gothic", Font.BOLD, 26);
@@ -100,7 +99,7 @@ public class EventGame extends JFrame implements ActionListener {
 	/** 
 	 * This method processes the action events of clicking a section button.
 	 * 
-	 * @param event This is the action of clicking on one of the buttons
+	 * @param e This is the action of clicking on one of the buttons
 	 */
 	
 	public void actionPerformed(ActionEvent e) {
@@ -138,10 +137,10 @@ public class EventGame extends JFrame implements ActionListener {
 	}
 	
 	
-	public static void main (String [] args) {
-		new EventGame().setVisible(true);
+	//public static void main (String [] args) {
+	//	new EventGame().setVisible(true);
 		
-	}
+	//}
 	
 	
 

@@ -5,9 +5,13 @@ import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 /**
- * @author Group 4
- * Last Updated: 3/10/2017
- * MovieEvent: Concert event layout, sections, seats, sets prices
+ * * MovieEvent: Concert event layout, sections, seats, sets prices
+ * 
+ * 
+ * @author  Group 4; Amin Karabash, Andrew Duron, Alejandra Licon, Rafael Lopez
+ * @version 1.0
+ * @since   2017-03-10
+ * 
  *
  */
 public class MovieEvent extends JFrame {
@@ -41,7 +45,10 @@ public class MovieEvent extends JFrame {
     order.add(done);
 
   }
-  /**generates seat grid and sets their prices.
+  /**
+   * generates seat grid and sets their prices.
+   * 
+   * @return gridSeats Is the grid containing the seats  
    *  
  */
   public JComponent getSeats() {

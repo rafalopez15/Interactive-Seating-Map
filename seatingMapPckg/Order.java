@@ -9,6 +9,7 @@ import java.awt.event.*;
 *This class genereates the order for the seats. It counts how many seats the user
 *chooses, applies a discount if conditions are met. And finally, gives the total.
 *
+*
 * @author  Group 4
 * @version 1.0
 * @since   2017-03-10 
@@ -32,7 +33,7 @@ public class Order extends JLabel {
   /**
   *Creates the order object to display with the seats. Chceks for discounts, adds up 
   *the total of seats selected.
-  *@param seats array takes the array of the selected section.
+  *@param s array takes the array of the selected section.
   */
   public Order(Seat[] s) {
     summary = BorderFactory.createTitledBorder(blackline, "Order");

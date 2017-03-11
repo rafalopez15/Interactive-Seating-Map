@@ -1,17 +1,23 @@
 package seatingMapPckg;
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
 
 /**
- * @author Group 4
- * Last Updated: 3/10/2017
+ * 
  * EventConcert: Concert event layout, sections, seats, sets prices
+ * 
+ * 
+ * @author  Group 4; Amin Karabash, Andrew Duron, Alejandra Licon, Rafael Lopez
+ * @version 1.0
+ * @since   2017-03-10
+ * 
  *
  */
 public class EventConcert extends JFrame implements ActionListener {
-	JLabel stageLabel = new JLabel(new ImageIcon(getClass().getResource("/images/stage.png")));
+	JLabel stageLabel = new JLabel(new ImageIcon(getClass().getResource("images/stage.png")));
 	JToggleButton north = new JToggleButton("North");
 	JToggleButton middle = new JToggleButton("Middle");
 	JToggleButton south = new JToggleButton("South");
@@ -82,15 +88,6 @@ public class EventConcert extends JFrame implements ActionListener {
 			seatingDisplaySouth.setTitle(" South Section ");
 			
 		}
-		
-	}
-	
-	
-	/**
-	 * @param args
-	 */
-	public static void main (String [] args){
-		new EventConcert().setVisible(true);
 		
 	}
 	

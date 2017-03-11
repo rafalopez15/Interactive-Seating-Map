@@ -10,6 +10,7 @@ import javax.swing.border.*;
 *This class is a custom JToggle button that we used as our seating display.
 *Creates a button that can have a price property to check the price of that specific seat
 *
+*
 * @author  Group 4
 * @version 1.0
 * @since   2017-03-10 
