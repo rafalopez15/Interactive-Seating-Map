@@ -17,7 +17,7 @@ import java.awt.*;
 
 public class Event extends JFrame implements ActionListener{
 
-  private JButton backButton = new JButton("Back");
+
   private JButton[][] grid = new JButton[1][3];
   private JLabel statusBar = new JLabel("");
   JPanel centerPanel = new JPanel(new GridLayout(1, 3));
@@ -58,17 +58,14 @@ public class Event extends JFrame implements ActionListener{
     }
     
     start();
-    backButton.addActionListener(this);
-    backButton.setVisible(false);
-
     JPanel northPanel = new JPanel();
     northPanel.add(statusBar);
-    JPanel southPanel = new JPanel();
-    southPanel.add(backButton);
+   
+    
 
     add(northPanel, "North");
     add(centerPanel, "Center");
-    add(southPanel, "South");
+    
 
     setLocationRelativeTo(null);
   }
@@ -155,13 +152,6 @@ public class Event extends JFrame implements ActionListener{
 	 */
   public void actionPerformed(ActionEvent event) {
 
-    if (event.getSource() == backButton) {
-      start();
-      pack();
-    }
-    
-    // checks to see which space on the game board was pressed and whose turn it is 
-    else {
       for (int i = 0; i < 1; i++) {
         for (int j = 0; j < 3; j++) {
           if (event.getSource() == grid[i][j]) {
@@ -169,7 +159,7 @@ public class Event extends JFrame implements ActionListener{
           }
         }
       }
-    }
+    
   }
   
   public static void main (String [] args){
