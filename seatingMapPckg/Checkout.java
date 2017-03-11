@@ -1,12 +1,20 @@
+package seatingMapPckg;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
 /**
-Gets the order information, displays it on a checkout panel when the 
-user finishes selecting seats.
+* Gets the order information, displays it on a checkout panel when the
+* user finishes selecting seats.
+*
+* @author  Group 4
+* @version 1.0
+* @since   2017-03-10 
+*  
 */
+
 public class Checkout extends JFrame {
     JPanel order = new JPanel();
     JLabel words = new JLabel();

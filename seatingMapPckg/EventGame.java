@@ -1,3 +1,5 @@
+package seatingMapPckg;
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -8,7 +10,7 @@ import java.awt.*;
 * 
 * 
 *
-* @author  Amin Karabash
+* @author  Group 4
 * @version 1.0
 * @since   2017-03-10 
 *  
@@ -61,7 +63,7 @@ public class EventGame extends JFrame implements ActionListener {
 		court.setBorderPainted(false);
 		court.setFocusPainted(false);
 		court.setContentAreaFilled(false);
-		ImageIcon img = new ImageIcon(getClass().getResource("images/bballCourt.jpeg"));
+		ImageIcon img = new ImageIcon(getClass().getResource("/Interactive-Seating-Map/images/bballCourt.jpeg"));
 		court.setIcon(img);
 		court.setDisabledIcon(img);
 		Font font = new Font("MS Gothic", Font.BOLD, 26);

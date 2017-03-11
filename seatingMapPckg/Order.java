@@ -1,3 +1,5 @@
+package seatingMapPckg;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
@@ -6,6 +8,11 @@ import java.awt.event.*;
 /**
 *This class genereates the order for the seats. It counts how many seats the user
 *chooses, applies a discount if conditions are met. And finally, gives the total.
+*
+* @author  Group 4
+* @version 1.0
+* @since   2017-03-10 
+*  
 */
 
 public class Order extends JLabel {

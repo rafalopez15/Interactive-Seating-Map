@@ -1,8 +1,19 @@
+package seatingMapPckg;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.event.*;
 import java.awt.*;
 
+/** 
+* This class implements the UI for selecting an event  
+* 
+*
+* @author  Group 4
+* @version 1.0
+* @since   2017-03-10 
+*  
+*/
 
 public class Event extends JFrame implements ActionListener{
 

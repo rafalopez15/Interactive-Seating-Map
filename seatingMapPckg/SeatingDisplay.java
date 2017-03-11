@@ -1,3 +1,5 @@
+package seatingMapPckg;
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -9,7 +11,7 @@ import java.awt.*;
 * 
 * 
 *
-* @author  Amin Karabash
+* @author  Group 4
 * @version 1.0
 * @since   2017-03-10 
 *  
