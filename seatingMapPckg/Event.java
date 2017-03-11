@@ -141,6 +141,8 @@ public class Event extends JFrame implements ActionListener{
   private void start() {
     setStatus("Select an Event:");
     newContent.setVisible(false);
+    gameContent.setVisible(false);
+    concertContent.setVisible(false);
     centerPanel.setVisible(true);
     setGridEnabled(true);
   }
